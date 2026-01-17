@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>İsmail Kesmez | Electrical & Electronics Engineer</title>
+  <meta name="description" content="İsmail Kesmez - Electrical & Electronics Engineer. Projects, skills and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Platform-specific font tuning */
+    @supports (-webkit-touch-callout: none) {
+      body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,system-ui,sans-serif;}
+    }
+    @supports not (-webkit-touch-callout: none) {
+      body{font-family:Inter,Roboto,'Noto Sans',system-ui,Arial,sans-serif;}
+    }
+
+    :root{
+      --bg:#0b0f14; --card:#111826; --muted:#9aa4b2; --text:#e5e7eb; --accent:#38bdf8; --glass: rgba(17,24,38,.6);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+      background:
+      radial-gradient(1200px 600px at 20% -10%, #0e1a33 0%, transparent 60%),
+      radial-gradient(900px 500px at 80% 10%, #0b2a2a 0%, transparent 55%),
+      linear-gradient(180deg,#0b0f14,#0b0f14 60%,#0a1220);
+      min-height:100dvh; /* mobile real viewport */
+      overflow:hidden;
+    }
+
+    /* Sticky glass header like Apple */
+    header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:16px;
+      padding:calc(14px + env(safe-area-inset-top)) 20px 14px;
+      background:rgba(10,15,20,.55);backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.08)
+    }
+    header strong{font-weight:900;letter-spacing:.3px}
+    nav a{margin:0 10px;color:var(--muted);cursor:pointer;font-weight:600}
+    nav a.active{color:var(--text)}
+    nav a:hover{color:var(--text)}
+
+    .lang{display:flex;align-items:center;gap:10px}
+    .flag{width:24px;height:16px;object-fit:cover;border-radius:4px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.4);transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease}
+.flag:hover{transform:translateY(-2px) scale(1.08); box-shadow:0 10px 24px rgba(0,0,0,.5)}
+.flag:active{transform:scale(0.96); opacity:.9}
+
+    /* Presentation container */
+    .deck{position:fixed;left:0;right:0;bottom:0;top:calc(64px + env(safe-area-inset-top));height:calc(100dvh - 64px - env(safe-area-inset-top));}
+    .slides{height:100%; transition: transform 900ms cubic-bezier(.2,.8,.2,1);}
+    .slide{height:100%; display:flex; align-items:center; justify-content:center; padding:24px}
+
+    /* Cards / sections */
+    .card{max-width:1000px; width:100%; background:var(--glass); backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,.45)}
+
+    h1{font-size: clamp(32px, 7vw, 72px); line-height:1.1; margin:0 0 12px; font-weight:900; letter-spacing:-.02em}
+    h2{font-size: clamp(26px, 3.2vw, 44px); margin:0 0 12px}
+    h3{margin:14px 0 6px;font-size:22px}
+    .muted{color:var(--muted)}
+
+    .badges{margin:18px 0 6px}
+    .badge{display:inline-block;padding:10px 14px;border-radius:999px;background:#0b1220;border:1px solid rgba(255,255,255,.12);color:#c7d2fe;margin-right:10px;margin-bottom:10px}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 20px;border-radius:18px;
+      background:linear-gradient(135deg,#38bdf8,#60a5fa); color:#020617; font-weight:900}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr; gap:24px}
+    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+
+    /* Apple-like reveal animations */
+    .reveal{opacity:0; transform: translateY(24px) scale(.98); transition: 900ms cubic-bezier(.2,.8,.2,1)}
+    .reveal.show{opacity:1; transform:none}
+
+    /* Background subtle grid */
+    .bg-grid{position:fixed; inset:0; pointer-events:none; background:
+      linear-gradient(transparent 95%, rgba(255,255,255,.03) 95%),
+      linear-gradient(90deg, transparent 95%, rgba(255,255,255,.03) 95%);
+      background-size: 40px 40px, 40px 40px; opacity:.15}
+
+    footer{position:fixed; left:0; right:0; bottom:env(safe-area-inset-bottom); text-align:center; opacity:.6; font-size:12px}
+
+/* Contact icons */
+.contact-list{display:flex;flex-direction:column;gap:16px;margin-top:20px}
+.contact-item{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, background .35s ease}
+.contact-item:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.45);background:rgba(255,255,255,.07)}
+.contact-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#38bdf8,#60a5fa);color:#020617;font-size:20px;flex-shrink:0}
+.contact-text{display:flex;flex-direction:column}
+.contact-text span{font-size:13px;color:var(--muted)}
+.contact-text strong{font-size:16px;color:var(--text)}
+
+/* Press / tap animation */
+@keyframes press{
+  0%{transform:scale(1)}
+  50%{transform:scale(.96)}
+  100%{transform:scale(1)}
+}
+.contact-item:active{
+  animation:press .18s ease-out;
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header>
+    <strong>İsmail Kesmez</strong>
+    <div style="display:flex;align-items:center;gap:16px">
+      <nav>
+        <a data-index="0" class="active" data-i18n="nav_home">Ana Sayfa</a>
+        <a data-index="1" data-i18n="nav_about">Hakkımda</a>
+        <a data-index="2" data-i18n="nav_skills">Yetenekler</a>
+        <a data-index="3" data-i18n="nav_projects">Projeler</a>
+        <a data-index="4" data-i18n="nav_contact">İletişim</a>
+      </nav>
+      <div class="lang">
+        <img class="flag" id="tr" title="Türkçe" alt="TR" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg" onerror="this.onerror=null;this.src='https://flagcdn.com/w20/tr.png';">
+        <img class="flag" id="en" title="English" alt="EN" src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" onerror="this.onerror=null;this.src='https://flagcdn.com/w20/gb.png';">
+      </div>
+    </div>
+  </header>
+
+  <div class="deck">
+    <div class="slides" id="slides">
+
+      <!-- SLIDE 1: HERO -->
+      <section class="slide">
+        <div class="card reveal show">
+          <h1 data-i18n="title">Elektrik‑Elektronik Mühendisi</h1>
+          <p class="muted" data-i18n="subtitle">Gömülü sistemler, güç elektroniği ve kontrol odaklı projeler. Öğrenmeye ve ürün geliştirmeye odaklı.</p>
+          <div class="badges">
+            <span class="badge">STM32</span>
+            <span class="badge">Arduino</span>
+            <span class="badge" data-i18n="badge_power">Güç Elektroniği</span>
+            <span class="badge" data-i18n="badge_control">Kontrol</span>
+            <span class="badge">C/C++</span>
+          </div>
+          <div style="margin-top:24px">
+            <a class="btn" href="mailto:ismailkesmez23@gmail.com" data-i18n="cta">İletişime Geç</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: ABOUT -->
+      <section class="slide">
+        <div class="card reveal">
+          <h2 data-i18n="about_title">Hakkımda</h2>
+          <p data-i18n="about_p">Yeni mezun Elektrik‑Elektronik Mühendisiyim. STM32 ve Arduino ile gömülü projeler, inverter/indüktör gibi güç elektroniği uygulamaları ve kontrol sistemleri üzerinde çalıştım.</p>
+          <ul class="muted">
+            <li data-i18n="about_l1">Bitirme: Kablosuz enerji transferi prototipi</li>
+            <li data-i18n="about_l2">Güneş enerji sistemi ve inverter entegrasyonu</li>
+            <li data-i18n="about_l3">Ferrit çekirdekli bobin tasarımı (100 kHz)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: SKILLS -->
+      <section class="slide">
+        <div class="card reveal">
+          <h2 data-i18n="skills_title">Yetenekler</h2>
+          <div class="grid-2">
+            <ul>
+              <li data-i18n="skills_1">Gömülü: STM32, Arduino</li>
+              <li data-i18n="skills_2">Diller: C/C++, temel Python</li>
+              <li data-i18n="skills_3">Donanım: Şematik/PCB okuma, lehim</li>
+            </ul>
+            <ul>
+              <li data-i18n="skills_4">Güç: DC‑DC, inverter, ölçüm</li>
+              <li data-i18n="skills_5">Araçlar: Git, VS Code, Proteus</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: PROJECTS -->
+      <section class="slide">
+        <div class="card reveal">
+          <h2 data-i18n="projects_title">Projeler</h2>
+          <h3 data-i18n="p1_title">Kablosuz Şarjlı Araç Pisti</h3>
+          <p class="muted" data-i18n="p1_desc">IR sensörlerle bobin seçimi, 220V kare dalga inverter, araç üzerinde doğrultma ve regülasyon.</p>
+          <h3 data-i18n="p2_title">Güneş Enerjili Pompa Sistemi</h3>
+          <p class="muted" data-i18n="p2_desc">6 kW panel + akü + inverter ile 4 kW dalgıç pompa besleme.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: CONTACT -->
+      <section class="slide">
+        <div class="card reveal">
+          <h2 data-i18n="contact_title">İletişim</h2>
+
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:ismailkesmez23@gmail.com">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-text">
+                <span data-i18n="email">E‑posta</span>
+                <strong>ismailkesmez23@gmail.com</strong>
+              </div>
+            </a>
+
+            <a class="contact-item" href="https://github.com/ismailkesmez" target="_blank">
+              <div class="contact-icon">🐙</div>
+              <div class="contact-text">
+                <span>GitHub</span>
+                <strong>github.com/ismailkesmez</strong>
+              </div>
+            </a>
+
+            <a class="contact-item" href="https://www.linkedin.com/in/ismail-kesmez-4266a8234/" target="_blank">
+              <div class="contact-icon">💼</div>
+              <div class="contact-text">
+                <span>LinkedIn</span>
+                <strong>linkedin.com/in/ismailkesmez</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>© <span id="y"></span> İsmail Kesmez</footer>
+
+  <script>
+    const dict = {
+      tr: {
+        nav_home:"Ana Sayfa", nav_about:"Hakkımda", nav_skills:"Yetenekler", nav_projects:"Projeler", nav_contact:"İletişim",
+        title:"Elektrik‑Elektronik Mühendisi",
+        subtitle:"Gömülü sistemler, güç elektroniği ve kontrol odaklı projeler. Öğrenmeye ve ürün geliştirmeye odaklı.",
+        badge_power:"Güç Elektroniği", badge_control:"Kontrol", cta:"İletişime Geç",
+        about_title:"Hakkımda",
+        about_p:"Yeni mezun Elektrik‑Elektronik Mühendisiyim. STM32 ve Arduino ile gömülü projeler, inverter/indüktör gibi güç elektroniği uygulamaları ve kontrol sistemleri üzerinde çalıştım.",
+        about_l1:"Bitirme: Kablosuz enerji transferi prototipi",
+        about_l2:"Güneş enerji sistemi ve inverter entegrasyonu",
+        about_l3:"Ferrit çekirdekli bobin tasarımı (100 kHz)",
+        skills_title:"Yetenekler",
+        skills_1:"Gömülü: STM32, Arduino",
+        skills_2:"Diller: C/C++, temel Python",
+        skills_3:"Donanım: Şematik/PCB okuma, lehim",
+        skills_4:"Güç: DC‑DC, inverter, ölçüm",
+        skills_5:"Araçlar: Git, VS Code, Proteus",
+        projects_title:"Projeler",
+        p1_title:"Kablosuz Şarjlı Araç Pisti",
+        p1_desc:"IR sensörlerle bobin seçimi, 220V kare dalga inverter, araç üzerinde doğrultma ve regülasyon.",
+        p2_title:"Güneş Enerjili Pompa Sistemi",
+        p2_desc:"6 kW panel + akü + inverter ile 4 kW dalgıç pompa besleme.",
+        contact_title:"İletişim",
+        email:"E‑posta:",
+        replace_note:"(Bilgileri kendinle değiştir)"
+      },
+      en: {
+        nav_home:"Home", nav_about:"About", nav_skills:"Skills", nav_projects:"Projects", nav_contact:"Contact",
+        title:"Electrical & Electronics Engineer",
+        subtitle:"Embedded systems, power electronics and control‑oriented projects. Focused on learning and building products.",
+        badge_power:"Power Electronics", badge_control:"Control", cta:"Contact Me",
+        about_title:"About",
+        about_p:"I am a newly graduated Electrical & Electronics Engineer. I worked on embedded projects with STM32 and Arduino, power electronics applications such as inverters/inductors, and control systems.",
+        about_l1:"Capstone: Wireless power transfer prototype",
+        about_l2:"Solar energy system and inverter integration",
+        about_l3:"Ferrite core coil design (100 kHz)",
+        skills_title:"Skills",
+        skills_1:"Embedded: STM32, Arduino",
+        skills_2:"Languages: C/C++, basic Python",
+        skills_3:"Hardware: Schematic/PCB reading, soldering",
+        skills_4:"Power: DC‑DC, inverter, measurements",
+        skills_5:"Tools: Git, VS Code, Proteus",
+        projects_title:"Projects",
+        p1_title:"Wireless Charging Track",
+        p1_desc:"Coil selection with IR sensors, 220V square‑wave inverter, rectification and regulation on the vehicle.",
+        p2_title:"Solar Powered Pump System",
+        p2_desc:"Feeding a 4 kW submersible pump using 6 kW panels + battery + inverter.",
+        contact_title:"Contact",
+        email:"Email:",
+        replace_note:"(Replace with your own information)"
+      }
+    };
+
+    function setLang(l){
+      document.documentElement.lang = l;
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const k = el.getAttribute('data-i18n');
+        if(dict[l][k]) el.textContent = dict[l][k];
+      });
+      localStorage.setItem('lang', l);
+    }
+
+    const slidesEl = document.getElementById('slides');
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    let index = 0;
+    let locked = false;
+
+    function update(){
+      const h = document.querySelector('.deck').clientHeight;
+      slidesEl.style.transform = `translateY(${-index * h}px)`;
+      document.querySelectorAll('.reveal').forEach((el,i)=>{
+        const parent = el.closest('.slide');
+        const idx = slides.indexOf(parent);
+        if(idx === index) requestAnimationFrame(()=> el.classList.add('show'));
+        else el.classList.remove('show');
+      });
+      document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+      const nav = document.querySelector(`nav a[data-index="${index}"]`);
+      if(nav) nav.classList.add('active');
+    }
+
+    function go(d){
+      if(locked) return;
+      const next = index + d;
+      if(next < 0 || next >= slides.length) return;
+      locked = true;
+      index = next;
+      update();
+      setTimeout(()=> locked = false, 900);
+    }
+
+    window.addEventListener('wheel', (e)=>{
+      if(Math.abs(e.deltaY) < 20) return;
+      if(e.deltaY > 0) go(1); else go(-1);
+    }, {passive:true});
+
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        const i = parseInt(a.getAttribute('data-index'),10);
+        if(!Number.isNaN(i)){ index = i; update(); }
+      });
+    });
+
+    // Touch support
+    let sy = 0;
+    window.addEventListener('touchstart', e=>{ sy = e.touches[0].clientY; }, {passive:true});
+    window.addEventListener('touchend', e=>{
+      const ey = e.changedTouches[0].clientY;
+      const dy = sy - ey;
+      if(Math.abs(dy) > 40){ if(dy > 0) go(1); else go(-1); }
+    }, {passive:true});
+
+    document.getElementById('tr').onclick = ()=>setLang('tr');
+    document.getElementById('en').onclick = ()=>setLang('en');
+
+    const saved = localStorage.getItem('lang') || 'tr';
+    setLang(saved);
+
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // initial
+    update();
+  </script>
+</body>
+</html>
