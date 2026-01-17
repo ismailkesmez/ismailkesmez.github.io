@@ -9,16 +9,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    /* Platform-specific font tuning */
+    @supports (-webkit-touch-callout: none) {
+      body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,system-ui,sans-serif;}
+    }
+    @supports not (-webkit-touch-callout: none) {
+      body{font-family:Inter,Roboto,'Noto Sans',system-ui,Arial,sans-serif;}
+    }
+
     :root{
       --bg:#0b0f14; --card:#111826; --muted:#9aa4b2; --text:#e5e7eb; --accent:#38bdf8; --glass: rgba(17,24,38,.6);
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
       background:
       radial-gradient(1200px 600px at 20% -10%, #0e1a33 0%, transparent 60%),
       radial-gradient(900px 500px at 80% 10%, #0b2a2a 0%, transparent 55%),
       linear-gradient(180deg,#0b0f14,#0b0f14 60%,#0a1220);
+      min-height:100dvh; /* mobile real viewport */
       overflow:hidden;
     }
 
@@ -38,7 +46,7 @@
 .flag:active{transform:scale(0.96); opacity:.9}
 
     /* Presentation container */
-    .deck{position:fixed; inset:0; top:64px; }
+    .deck{position:fixed; inset:0; top:64px; height:calc(100dvh - 64px);}
     .slides{height:100%; transition: transform 900ms cubic-bezier(.2,.8,.2,1);}
     .slide{height:100%; display:flex; align-items:center; justify-content:center; padding:24px}
 
