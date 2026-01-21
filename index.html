@@ -71,7 +71,7 @@
 
     h1{font-size: clamp(32px, 7vw, 72px); line-height:1.1; margin-bottom:12px; font-weight:900; letter-spacing:-.02em}
     h2{font-size: clamp(26px, 3.2vw, 44px); margin-bottom:20px}
-    h3{margin:24px 0 8px; font-size:22px; color:var(--accent) !important;} /* Alt başlıkları vurguladık */
+    h3{margin:24px 0 8px; font-size:22px; color:var(--accent) !important;}
     
     .muted{color: #f1f5f9 !important;}
     
@@ -259,10 +259,16 @@
       <section class="slide">
         <div class="card reveal">
           <h2 data-i18n="projects_title">Projeler</h2>
-          <h3 data-i18n="p1_title">Kablosuz Şarjlı Araç Pisti</h3>
-          <p class="muted" data-i18n="p1_desc">IR sensörlerle bobin seçimi, 220V kare dalga inverter, araç üzerinde doğrultma ve regülasyon.</p>
-          <h3 data-i18n="p2_title">Güneş Enerjili Pompa Sistemi</h3>
-          <p class="muted" data-i18n="p2_desc">6 kW panel + akü + inverter ile 4 kW dalgıç pompa besleme.</p>
+          
+          <h3 data-i18n="p1_title">Kablosuz Enerji Aktarımlı Elektrikli Araç Şarj Yolu (Bitirme Projesi)</h3>
+          <p class="muted" data-i18n="p1_desc">Bu projede, güneş enerjisi ile beslenen, kablosuz güç transferi kullanarak hareketli bir aracı şarj edebilen modüler bir yol sistemi tasarlanmış ve prototipi oluşturulmuştur.</p>
+
+          <h3 data-i18n="p2_title">Güneş Enerjili Tarımsal Sulama Sistemi Tasarımı</h3>
+          <p class="muted" data-i18n="p2_desc">Bu projede, 4 kW gücünde dalgıç pompayı besleyebilecek güneş enerjili bir sulama sisteminin boyutlandırması ve sistem tasarımı yapılmıştır.</p>
+
+          <h3 data-i18n="p3_title">Optimizasyon Tabanlı PID Kontrolcü Tasarımı (Akademik Çalışma)</h3>
+          <p class="muted" data-i18n="p3_desc">Bu çalışmada, klasik PID ayarlama yöntemleri yerine optimizasyon algoritmaları kullanılarak PID parametrelerinin belirlenmesi konusu incelenmiştir.</p>
+          
         </div>
       </section>
 
@@ -362,7 +368,6 @@
         about_p3:"Farklı sektörlerde ve projelerde karşılaşılabilecek değişken gereksinimlere hızlı adaptasyon sağlayabilmek, benim için teknik yetkinlik kadar değerlidir. Yeni bir teknolojiye, araca veya probleme yaklaşırken öğrenmeye açık olmak ve çözüm odaklı düşünmek, çalışma disiplinimin temelini oluşturur. Bilginin tek başına yeterli olmadığı; doğru yerde, doğru şekilde kullanılmasının fark yarattığına inanıyorum.",
         about_p4:"Uzun vadede hedefim; sürekli gelişen, değişen teknolojilere uyum sağlayabilen, farklı disiplinleri bir araya getirerek katma değer üreten ve ilerlediği yolu bilinçli şekilde şekillendiren bir mühendis olarak kariyerimi sürdürmektir.",
         
-        // --- SKILLS SECTION TR ---
         skills_title:"Yetenekler",
         s1_t: "Gömülü Sistemler (Embedded Systems)",
         s1_d: "Gömülü sistemler alanında, mikrodenetleyici tabanlı sistemlerin temel çalışma prensipleri üzerinde bilgi birikimimi geliştiriyorum. MCU mimarisi, çevresel birimler (peripheral), clock yapısı ve bellek organizasyonu gibi konularda teorik altyapıya sahibim. STM32 ekosistemi üzerinde; GPIO, timer, interrupt, ADC, UART ve I2C gibi temel modüllerin nasıl yapılandırıldığını ve sistem davranışını nasıl etkilediğini biliyorum. Gömülü yazılımın, donanımdan bağımsız düşünülemeyeceğinin farkındayım ve bu nedenle konfigürasyon, zamanlama ve deterministik davranış konularına özellikle önem veriyorum.",
@@ -378,11 +383,18 @@
         s5_d_py: "<strong>Python:</strong> OpenCV kütüphanesini kullanarak görüntü işleme uygulamalarında görev aldım. Bir projede hareket halindeki bir aracın plakasının drone görüntüsü üzerinden tespit ve takibini gerçekleştiren sistemin yazılımını inceledim.",
         s5_d_plc: "<strong>PLC:</strong> Siemens TIA Portal ortamında Ladder Diagram kullanarak temel seviye PLC uygulamaları geliştirdim. Giriş-çıkış kontrolü, zamanlayıcılar ve basit otomasyon senaryoları üzerine çalışmalar yaptım.",
 
+        // --- PROJECTS SECTION TR ---
         projects_title:"Projeler",
-        p1_title:"Kablosuz Şarjlı Araç Pisti",
-        p1_desc:"IR sensörlerle bobin seçimi, 220V kare dalga inverter, araç üzerinde doğrultma ve regülasyon.",
-        p2_title:"Güneş Enerjili Pompa Sistemi",
-        p2_desc:"6 kW panel + akü + inverter ile 4 kW dalgıç pompa besleme.",
+        
+        p1_title:"Kablosuz Enerji Aktarımlı Elektrikli Araç Şarj Yolu (Bitirme Projesi)",
+        p1_desc:"Bu projede, güneş enerjisi ile beslenen, kablosuz güç transferi kullanarak hareketli bir aracı şarj edebilen modüler bir yol sistemi tasarlanmış ve prototipi oluşturulmuştur.<br><br>Sistem; 20W 12V güneş paneli, 12V akü, 12V DC → 220V AC kare dalga inverter ve Arduino Uno kontrol ünitesinden oluşmaktadır. Yol boyunca yerleştirilmiş 16 adet U tipi ferrit çekirdekli verici bobin, IR sensörler yardımıyla aracın konumuna göre sadece aracın altında bulunan bobin aktif olacak şekilde kontrol edilmektedir. Bu sayede enerji israfı önlenmiş ve sistem verimliliği artırılmıştır.<br><br>Araç üzerinde ise iki adet alıcı bobin, doğrultma ve regülasyon devresi ile 8V 1.8Ah bataryanın şarj edilmesi sağlanmıştır. Araç, bu batarya ile çalışan Arduino, motor sürücü ve 4 adet 6V DC motor içermektedir.<br><br>Projede ayrıca 100 kHz çalışma frekansına uygun, UU6015 ferrit çekirdek üzerinde 20 tur verici bobin tasarımı yapılmış ve güç aktarımı deneysel olarak test edilmiştir.<br><br><strong>Kazanımlar:</strong><br>• Güç elektroniği<br>• Yüksek frekanslı inverter tasarımı<br>• Kablosuz enerji transferi<br>• Arduino ile gerçek zamanlı kontrol<br>• Sensör tabanlı otomasyon",
+
+        p2_title:"Güneş Enerjili Tarımsal Sulama Sistemi Tasarımı",
+        p2_desc:"Bu projede, 4 kW gücünde (İmpo SK 408/23) dalgıç pompayı besleyebilecek güneş enerjili bir sulama sisteminin boyutlandırması ve sistem tasarımı yapılmıştır. Hedef; 1 dönümlük tarım arazisi için günlük 5000–8000 litre su sağlayabilecek, günde 5–8 saat çalışabilen, şebekeden bağımsız (off-grid) bir sistem oluşturmaktır.<br><br><strong>Sistem Kapsamı:</strong><br>• 6 kW güneş paneli gücü<br>• Akü destekli enerji depolama yapısı<br>• Uygun inverter seçimi<br>• Günlük enerji tüketimi ve üretim hesabı<br>• Pompa kalkış akımı ve sürekli çalışma gücü analizleri<br><br><strong>Kazanımlar:</strong><br>• Yenilenebilir enerji sistemleri boyutlandırma<br>• Yük analizi<br>• İnverter ve akü kapasitesi hesaplama<br>• Tarımsal enerji sistemleri planlama",
+
+        p3_title:"Optimizasyon Tabanlı PID Kontrolcü Tasarımı (Akademik Çalışma)",
+        p3_desc:"Bu çalışmada, “Design of PID Controllers with Computational Optimization Approach” başlığı altında, klasik PID ayarlama yöntemleri yerine optimizasyon algoritmaları kullanılarak PID parametrelerinin belirlenmesi konusu incelenmiştir. Kontrol teorisi dersi kapsamında yapılan bu projede; PID kontrolcülerin çalışma prensipleri, manuel ayarlama yöntemlerinin dezavantajları ve optimizasyon tabanlı yaklaşımın performans iyileştirmesi teorik ve uygulamalı olarak ele alınmıştır.<br><br>Amaç; sistemin aşım (overshoot), yerleşme süresi (settling time) ve kararlı hal hatası (steady-state error) gibi performans kriterlerini iyileştiren PID parametrelerini hesaplamalı yöntemlerle elde etmektir.<br><br><strong>Kazanımlar:</strong><br>• Kontrol sistemleri<br>• PID optimizasyonu<br>• Mühendislikte sayısal yöntemlerin kullanımı<br>• Sistem performans analizi",
+
         contact_title:"İletişim",
         email:"E‑posta:",
         cert_title: "Sertifikalar",
@@ -400,7 +412,6 @@
         about_p3:"Being able to adapt quickly to variable requirements that may be encountered in different sectors and projects is as valuable to me as technical competence. Being open to learning and thinking solution-oriented when approaching a new technology, tool, or problem forms the basis of my work discipline. I believe that knowledge alone is not enough; using it in the right place and in the right way makes the difference.",
         about_p4:"My long-term goal is to continue my career as an engineer who constantly develops, adapts to changing technologies, produces added value by bringing different disciplines together, and consciously shapes the path he advances.",
 
-        // --- SKILLS SECTION EN ---
         skills_title:"Skills",
         s1_t: "Embedded Systems",
         s1_d: "I am developing my knowledge on the basic working principles of microcontroller-based systems. I have a theoretical background in subjects such as MCU architecture, peripherals, clock structure, and memory organization. On the STM32 ecosystem; I know how basic modules such as GPIO, timer, interrupt, ADC, UART, and I2C are configured and how they affect system behavior. I realize that embedded software cannot be considered independently of hardware, so I attach particular importance to configuration, timing, and deterministic behavior.",
@@ -416,11 +427,18 @@
         s5_d_py: "<strong>Python:</strong> Took part in image processing applications using OpenCV. Examined the software of a system that detects and tracks the license plate of a moving vehicle via drone image.",
         s5_d_plc: "<strong>PLC:</strong> Developed basic level PLC applications using Ladder Diagram in Siemens TIA Portal environment. Worked on I/O control, timers, and simple automation scenarios.",
 
+        // --- PROJECTS SECTION EN ---
         projects_title:"Projects",
-        p1_title:"Wireless Charging Track",
-        p1_desc:"Coil selection with IR sensors, 220V square‑wave inverter, rectification and regulation on the vehicle.",
-        p2_title:"Solar Powered Pump System",
-        p2_desc:"Feeding a 4 kW submersible pump using 6 kW panels + battery + inverter.",
+        
+        p1_title:"Wireless Power Transfer Electric Vehicle Charging Lane (Capstone Project)",
+        p1_desc:"In this project, a modular road system powered by solar energy, capable of charging a moving vehicle using wireless power transfer, was designed and prototyped.<br><br>The system consists of a 20W 12V solar panel, 12V battery, 12V DC → 220V AC square wave inverter, and an Arduino Uno control unit. 16 U-type ferrite core transmitter coils placed along the road are controlled so that only the coil under the vehicle is active with the help of IR sensors. In this way, energy waste is prevented and system efficiency is increased.<br><br>On the vehicle, an 8V 1.8Ah battery is charged with two receiver coils, rectification, and regulation circuit. The vehicle contains an Arduino, motor driver, and 4 6V DC motors powered by this battery.<br><br>Also in the project, a 20-turn transmitter coil design was made on a UU6015 ferrite core suitable for 100 kHz operating frequency, and power transfer was experimentally tested.<br><br><strong>Gains:</strong><br>• Power electronics<br>• High-frequency inverter design<br>• Wireless energy transfer<br>• Real-time control with Arduino<br>• Sensor-based automation",
+
+        p2_title:"Solar Powered Agricultural Irrigation System Design",
+        p2_desc:"In this project, the sizing and system design of a solar-powered irrigation system capable of feeding a 4 kW (İmpo SK 408/23) submersible pump was carried out. The goal is to create an off-grid system that can provide 5000–8000 liters of water per day for 1 acre of agricultural land, running for 5–8 hours a day.<br><br><strong>System Scope:</strong><br>• 6 kW solar panel power<br>• Battery-supported energy storage structure<br>• Suitable inverter selection<br>• Daily energy consumption and production calculation<br>• Pump starting current and continuous operating power analysis<br><br><strong>Gains:</strong><br>• Renewable energy systems sizing<br>• Load analysis<br>• Inverter and battery capacity calculation<br>• Agricultural energy systems planning",
+
+        p3_title:"Optimization-Based PID Controller Design (Academic Study)",
+        p3_desc:"In this study, under the title “Design of PID Controllers with Computational Optimization Approach”, the subject of determining PID parameters using optimization algorithms instead of classical PID tuning methods was examined. In this project carried out within the scope of the control theory course; the working principles of PID controllers, the disadvantages of manual tuning methods, and the performance improvement of the optimization-based approach were discussed theoretically and practically.<br><br>The aim is to obtain PID parameters that improve performance criteria such as overshoot, settling time, and steady-state error of the system using computational methods.<br><br><strong>Gains:</strong><br>• Control systems<br>• PID optimization<br>• Use of numerical methods in engineering<br>• System performance analysis",
+
         contact_title:"Contact",
         email:"Email:",
         cert_title: "Certificates",
@@ -434,7 +452,6 @@
       document.querySelectorAll('[data-i18n]').forEach(el=>{
         const k = el.getAttribute('data-i18n');
         if(dict[l][k]) {
-           // HTML içerik desteği için innerHTML kullanıyoruz (bold etiketleri için)
            el.innerHTML = dict[l][k];
         }
       });
