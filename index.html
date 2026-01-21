@@ -47,8 +47,7 @@
     .card{max-width:1000px; width:100%; background:var(--glass); backdrop-filter: blur(10px);
       border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,.45);
       color: #ffffff;
-      /* Kartın çok uzamasını engellemek için max-height veriyoruz ki içerik taşarsa scroll olsun */
-      max-height: 85vh;
+      max-height: 85vh; /* İçerik taşarsa scroll açılması için limit */
       display: flex; flex-direction: column;
     }
 
@@ -70,23 +69,22 @@
     .grid-2{display:grid;grid-template-columns:1fr 1fr; gap:24px}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
 
-    /* --- YENİ SERTİFİKA GRID SİSTEMİ --- */
+    /* --- GÜNCELLENMİŞ SERTİFİKA GRID SİSTEMİ --- */
     .cert-grid {
       display: grid;
       /* Mobilde 2 sütun */
       grid-template-columns: repeat(2, 1fr); 
       gap: 16px;
       margin-top: 24px;
-      /* Kaydırma özelliği: Kartın boyunu aşarsa aşağı kaydır */
-      overflow-y: auto;
-      padding-right: 8px; /* Scrollbar için boşluk */
+      overflow-y: auto; /* Dikey kaydırma */
+      padding-right: 8px; 
     }
 
     /* Masaüstünde 4 sütun */
     @media (min-width: 900px) {
       .cert-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        gap: 24px; /* Satır ve sütun arası boşluk */
       }
     }
 
@@ -114,9 +112,10 @@
 
     .cert-item img {
       width: 100%;
-      height: auto;
+      height: 100%; /* Kartın içini doldur */
+      object-fit: cover; /* Resmi orantılı kırp */
       display: block;
-      object-fit: cover;
+      aspect-ratio: 4/3; /* Tüm sertifikaları aynı boyutta göstermek için oran */
     }
     /* ----------------------------------- */
 
@@ -265,20 +264,30 @@
             <a class="cert-item" href="assets/certificates/Elektrik Proje Temel Eğitimi_Udemy.png" target="_blank">
               <img src="assets/certificates/Elektrik Proje Temel Eğitimi_Udemy.png" alt="Udemy Elektrik Proje" loading="lazy">
             </a>
-
             <a class="cert-item" href="assets/certificates/Google Prompting Essentials_Coursera.png" target="_blank">
               <img src="assets/certificates/Google Prompting Essentials_Coursera.png" alt="Google Prompting" loading="lazy">
             </a>
-
             <a class="cert-item" href="assets/certificates/Güneş_enerji_sistemi_tasarımı_udemy.png" target="_blank">
               <img src="assets/certificates/Güneş_enerji_sistemi_tasarımı_udemy.png" alt="Güneş Enerji Tasarımı" loading="lazy">
             </a>
-
             <a class="cert-item" href="assets/certificates/Temel_elektrik_elektronik_kursu_udemy.png" target="_blank">
               <img src="assets/certificates/Temel_elektrik_elektronik_kursu_udemy.png" alt="Temel Elektrik Elektronik" loading="lazy">
             </a>
 
-            </div>
+            <a class="cert-item" href="assets/certificates/Finansal Okuryazarlık.png" target="_blank">
+              <img src="assets/certificates/Finansal Okuryazarlık.png" alt="Finansal Okuryazarlık" loading="lazy">
+            </a>
+            <a class="cert-item" href="assets/certificates/İş_analizi_nedir_linkedin.png" target="_blank">
+              <img src="assets/certificates/İş_analizi_nedir_linkedin.png" alt="İş Analizi Nedir" loading="lazy">
+            </a>
+            <a class="cert-item" href="assets/certificates/Üretken_yz_için_istem_mühendisliğine_giriş_Linkedin.png" target="_blank">
+              <img src="assets/certificates/Üretken_yz_için_istem_mühendisliğine_giriş_Linkedin.png" alt="İstem Mühendisliği" loading="lazy">
+            </a>
+            <a class="cert-item" href="assets/certificates/Üretken_yz_nedir_Linkedin.png" target="_blank">
+              <img src="assets/certificates/Üretken_yz_nedir_Linkedin.png" alt="Üretken YZ Nedir" loading="lazy">
+            </a>
+
+          </div>
         </div>
       </section>
 
