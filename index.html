@@ -18,19 +18,20 @@
     }
 
     :root{
-      --bg:#0b0f14; --card:#111826; --muted:#9aa4b2; --text:#e5e7eb; --accent:#38bdf8; --glass: rgba(17,24,38,.85); /* Kart arka planını biraz daha opaklaştırdım */
+      /* --muted rengini ve --text rengini beyaza çok yakın hale getirdik */
+      --bg:#0b0f14; --card:#111826; --muted:#f1f5f9; --text:#ffffff; --accent:#38bdf8; --glass: rgba(17,24,38,.85);
     }
     *{box-sizing:border-box}
-    html,body{height:100%;width:100%;margin:0;padding:0;overscroll-behavior:none;background:#0b0f14;}
+    html,body{height:100%;width:100%;margin:0;padding:0;overscroll-behavior:none;background:#0b0f14; color: #ffffff;}
 
     /* Sticky glass header */
     header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(14px + env(safe-area-inset-top)) 20px 14px;background:#0b0f14;backdrop-filter: blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
     
     header strong{font-weight:900;letter-spacing:.3px; color: var(--accent);}
     
-    nav a{margin:0 10px;color:var(--muted);cursor:pointer;font-weight:600}
-    nav a.active{color:var(--text)}
-    nav a:hover{color:var(--text)}
+    nav a{margin:0 10px;color:#cbd5e1;cursor:pointer;font-weight:600}
+    nav a.active{color:#ffffff}
+    nav a:hover{color:#ffffff}
 
     .lang{display:flex;align-items:center;gap:10px}
     .flag{width:24px;height:16px;object-fit:cover;border-radius:4px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.4);transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease}
@@ -41,29 +42,33 @@
     .deck{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top));bottom:env(safe-area-inset-bottom);height:auto;background:#0b0f14;}
     .slides{height:100%; transition: transform 900ms cubic-bezier(.2,.8,.2,1);}
     
-    /* Genel Slide Ayarları */
     .slide{height:100%; display:flex; align-items:center; justify-content:center; padding:24px; position: relative;}
 
     /* Cards / sections */
     .card{max-width:1000px; width:100%; background:var(--glass); backdrop-filter: blur(10px);
-      border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,.45)}
+      border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,.45);
+      /* Kart içindeki tüm metinleri beyaz yapıyoruz */
+      color: #ffffff;
+    }
 
-    /* GÜNCELLEME: Tüm başlıklar BEYAZ yapıldı */
-    h1, h2, h3 { color: #ffffff !important; }
-    
+    /* Başlıklar, paragraflar ve listeler için kesin beyaz kuralı */
+    h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
+    p, li, span, div { color: #ffffff; }
+
     h1{font-size: clamp(32px, 7vw, 72px); line-height:1.1; margin:0 0 12px; font-weight:900; letter-spacing:-.02em}
     h2{font-size: clamp(26px, 3.2vw, 44px); margin:0 0 12px}
     h3{margin:14px 0 6px;font-size:22px}
     
-    .muted{color:var(--muted)}
+    /* Muted sınıfını artık açık gri/beyaz yapıyoruz */
+    .muted{color: #f1f5f9 !important;}
     
-    ul.cert-list li { margin-bottom: 8px; list-style-type: square; margin-left: 20px; color: var(--text); }
+    ul.cert-list li { margin-bottom: 8px; list-style-type: square; margin-left: 20px; color: #ffffff; }
 
     .badges{margin:18px 0 6px}
     .badge{display:inline-block;padding:10px 14px;border-radius:999px;background:#0b1220;border:1px solid rgba(255,255,255,.12);color:#c7d2fe;margin-right:10px;margin-bottom:10px}
 
     .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 20px;border-radius:18px;
-      background:linear-gradient(135deg,#38bdf8,#60a5fa); color:#ffffff; font-weight:900}
+      background:linear-gradient(135deg,#38bdf8,#60a5fa); color:#ffffff !important; font-weight:900}
 
     .grid-2{display:grid;grid-template-columns:1fr 1fr; gap:24px}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
@@ -76,29 +81,25 @@
       linear-gradient(90deg, transparent 95%, rgba(255,255,255,.03) 95%);
       background-size: 40px 40px, 40px 40px; opacity:.15}
 
-    footer{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom);background:#0b0f14;text-align:center;opacity:.6;font-size:12px;padding-bottom:6px; color: #fff;}
+    footer{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom);background:#0b0f14;text-align:center;opacity:.6;font-size:12px;padding-bottom:6px; color: #ffffff;}
 
     /* --- SKILLS SLIDE ÖZEL AYARLARI --- */
-    /* 1. İçeriği yukarı taşıma (flex-start) */
     .skills-slide {
-        align-items: flex-start !important; /* Dikeyde yukarı yasla */
-        padding-top: 140px !important;      /* Header'ın altına inmesi için boşluk */
+        align-items: flex-start !important; 
+        padding-top: 140px !important;
         overflow: hidden;
     }
 
-    /* 2. Arka plan görseli için döndürülebilir katman */
     .bg-rotate {
         position: absolute;
-        inset: -50%; /* Kenarlarda boşluk kalmasın diye genişletiyoruz */
+        inset: -50%;
         background: url('assets/images/stm32.png') center/contain no-repeat;
-        /* GÜNCELLEME: 90 derece döndürme */
         transform: rotate(90deg);
         z-index: -2;
-        opacity: 0.8; /* Görsel netliği */
+        opacity: 0.8;
         pointer-events: none;
     }
 
-    /* Görsel üzerine gelen hafif karartma */
     .skills-overlay {
         position: absolute;
         inset: 0;
@@ -117,8 +118,8 @@
     .contact-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#38bdf8,#60a5fa);color:#ffffff;font-size:20px;flex-shrink:0}
     
     .contact-text{display:flex;flex-direction:column}
-    .contact-text span{font-size:13px;color:var(--muted)}
-    .contact-text strong{font-size:16px;color:var(--text)}
+    .contact-text span{font-size:13px;color:#cbd5e1 !important;} /* Hafif gri ama okunur */
+    .contact-text strong{font-size:16px;color:#ffffff !important;}
 
     @keyframes press{ 0%{transform:scale(1)} 50%{transform:scale(.96)} 100%{transform:scale(1)} }
     .contact-item:active{ animation:press .18s ease-out; box-shadow:0 8px 20px rgba(0,0,0,.35); }
@@ -168,7 +169,7 @@
       <section class="slide">
         <div class="card reveal">
           <h2 data-i18n="about_title">Hakkımda</h2>
-          <p data-i18n="about_p">Yeni mezun Elektrik‑Elektronik Mühendisiyim. STM32 ve Arduino ile gömülü projeler, inverter/indüktör gibi güç elektroniği uygulamaları ve kontrol sistemleri üzerinde çalıştım.</p>
+          <p class="muted" data-i18n="about_p">Yeni mezun Elektrik‑Elektronik Mühendisiyim. STM32 ve Arduino ile gömülü projeler, inverter/indüktör gibi güç elektroniği uygulamaları ve kontrol sistemleri üzerinde çalıştım.</p>
           <ul class="muted">
             <li data-i18n="about_l1">Bitirme: Kablosuz enerji transferi prototipi</li>
             <li data-i18n="about_l2">Güneş enerji sistemi ve inverter entegrasyonu</li>
