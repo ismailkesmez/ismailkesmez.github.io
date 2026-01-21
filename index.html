@@ -18,7 +18,6 @@
     }
 
     :root{
-      /* --muted rengini ve --text rengini beyaza çok yakın hale getirdik */
       --bg:#0b0f14; --card:#111826; --muted:#f1f5f9; --text:#ffffff; --accent:#38bdf8; --glass: rgba(17,24,38,.85);
     }
     *{box-sizing:border-box}
@@ -47,23 +46,21 @@
     /* Cards / sections */
     .card{max-width:1000px; width:100%; background:var(--glass); backdrop-filter: blur(10px);
       border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,.45);
-      /* Kart içindeki tüm metinleri beyaz yapıyoruz */
       color: #ffffff;
+      /* Kartın çok uzamasını engellemek için max-height veriyoruz ki içerik taşarsa scroll olsun */
+      max-height: 85vh;
+      display: flex; flex-direction: column;
     }
 
-    /* Başlıklar, paragraflar ve listeler için kesin beyaz kuralı */
-    h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
+    h1, h2, h3, h4, h5, h6 { color: #ffffff !important; margin-top: 0;}
     p, li, span, div { color: #ffffff; }
 
-    h1{font-size: clamp(32px, 7vw, 72px); line-height:1.1; margin:0 0 12px; font-weight:900; letter-spacing:-.02em}
-    h2{font-size: clamp(26px, 3.2vw, 44px); margin:0 0 12px}
+    h1{font-size: clamp(32px, 7vw, 72px); line-height:1.1; margin-bottom:12px; font-weight:900; letter-spacing:-.02em}
+    h2{font-size: clamp(26px, 3.2vw, 44px); margin-bottom:12px}
     h3{margin:14px 0 6px;font-size:22px}
     
-    /* Muted sınıfını artık açık gri/beyaz yapıyoruz */
     .muted{color: #f1f5f9 !important;}
     
-    ul.cert-list li { margin-bottom: 8px; list-style-type: square; margin-left: 20px; color: #ffffff; }
-
     .badges{margin:18px 0 6px}
     .badge{display:inline-block;padding:10px 14px;border-radius:999px;background:#0b1220;border:1px solid rgba(255,255,255,.12);color:#c7d2fe;margin-right:10px;margin-bottom:10px}
 
@@ -72,6 +69,56 @@
 
     .grid-2{display:grid;grid-template-columns:1fr 1fr; gap:24px}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+
+    /* --- YENİ SERTİFİKA GRID SİSTEMİ --- */
+    .cert-grid {
+      display: grid;
+      /* Mobilde 2 sütun */
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 16px;
+      margin-top: 24px;
+      /* Kaydırma özelliği: Kartın boyunu aşarsa aşağı kaydır */
+      overflow-y: auto;
+      padding-right: 8px; /* Scrollbar için boşluk */
+    }
+
+    /* Masaüstünde 4 sütun */
+    @media (min-width: 900px) {
+      .cert-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    /* Şık Scrollbar */
+    .cert-grid::-webkit-scrollbar { width: 6px; }
+    .cert-grid::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
+    .cert-grid::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+    .cert-grid::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
+
+    .cert-item {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+    
+    .cert-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      z-index: 2;
+    }
+
+    .cert-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    /* ----------------------------------- */
 
     .reveal{opacity:0; transform: translateY(24px) scale(.98); transition: 900ms cubic-bezier(.2,.8,.2,1)}
     .reveal.show{opacity:1; transform:none}
@@ -83,7 +130,7 @@
 
     footer{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom);background:#0b0f14;text-align:center;opacity:.6;font-size:12px;padding-bottom:6px; color: #ffffff;}
 
-    /* --- SKILLS SLIDE ÖZEL AYARLARI --- */
+    /* SKILLS SLIDE */
     .skills-slide {
         align-items: flex-start !important; 
         padding-top: 140px !important;
@@ -118,7 +165,7 @@
     .contact-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#38bdf8,#60a5fa);color:#ffffff;font-size:20px;flex-shrink:0}
     
     .contact-text{display:flex;flex-direction:column}
-    .contact-text span{font-size:13px;color:#cbd5e1 !important;} /* Hafif gri ama okunur */
+    .contact-text span{font-size:13px;color:#cbd5e1 !important;}
     .contact-text strong{font-size:16px;color:#ffffff !important;}
 
     @keyframes press{ 0%{transform:scale(1)} 50%{transform:scale(.96)} 100%{transform:scale(1)} }
@@ -212,12 +259,26 @@
         <div class="card reveal">
           <h2 data-i18n="cert_title">Sertifikalar</h2>
           <p class="muted" data-i18n="cert_desc">Aldığım eğitimler ve kazandığım yetkinlik sertifikaları:</p>
-          <ul class="cert-list">
-            <li data-i18n="c1">Udemy: STM32 ile Gömülü Sistemler (Örnek)</li>
-            <li data-i18n="c2">Coursera: Power Electronics Specialization (Örnek)</li>
-            <li data-i18n="c3">Yabancı Dil: İngilizce B2 Sertifikası (Örnek)</li>
-            <li data-i18n="c4">TÜBİTAK Proje Katılım Belgesi (Örnek)</li>
-          </ul>
+          
+          <div class="cert-grid">
+            
+            <a class="cert-item" href="assets/certificates/Elektrik Proje Temel Eğitimi_Udemy.png" target="_blank">
+              <img src="assets/certificates/Elektrik Proje Temel Eğitimi_Udemy.png" alt="Udemy Elektrik Proje" loading="lazy">
+            </a>
+
+            <a class="cert-item" href="assets/certificates/Google Prompting Essentials_Coursera.png" target="_blank">
+              <img src="assets/certificates/Google Prompting Essentials_Coursera.png" alt="Google Prompting" loading="lazy">
+            </a>
+
+            <a class="cert-item" href="assets/certificates/Güneş_enerji_sistemi_tasarımı_udemy.png" target="_blank">
+              <img src="assets/certificates/Güneş_enerji_sistemi_tasarımı_udemy.png" alt="Güneş Enerji Tasarımı" loading="lazy">
+            </a>
+
+            <a class="cert-item" href="assets/certificates/Temel_elektrik_elektronik_kursu_udemy.png" target="_blank">
+              <img src="assets/certificates/Temel_elektrik_elektronik_kursu_udemy.png" alt="Temel Elektrik Elektronik" loading="lazy">
+            </a>
+
+            </div>
         </div>
       </section>
 
@@ -285,10 +346,6 @@
         email:"E‑posta:",
         cert_title: "Sertifikalar",
         cert_desc: "Aldığım eğitimler ve kazandığım yetkinlik sertifikaları:",
-        c1: "Udemy: STM32 ile Gömülü Sistemler (Örnek)",
-        c2: "Coursera: Power Electronics Specialization (Örnek)",
-        c3: "Yabancı Dil: İngilizce B2 Sertifikası (Örnek)",
-        c4: "TÜBİTAK Proje Katılım Belgesi (Örnek)",
         replace_note:"(Bilgileri kendinle değiştir)"
       },
       en: {
@@ -316,10 +373,6 @@
         email:"Email:",
         cert_title: "Certificates",
         cert_desc: "Trainings I received and competency certificates I earned:",
-        c1: "Udemy: Embedded Systems with STM32 (Example)",
-        c2: "Coursera: Power Electronics Specialization (Example)",
-        c3: "Language: English B2 Certificate (Example)",
-        c4: "TUBITAK Project Participation (Example)",
         replace_note:"(Replace with your own information)"
       }
     };
