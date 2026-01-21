@@ -206,7 +206,7 @@
       <section class="slide">
         <div class="card reveal show">
           <h1 data-i18n="title">Elektrik‑Elektronik Mühendisi</h1>
-          <p class="muted" data-i18n="subtitle">Gömülü sistemler, güç elektroniği ve kontrol odaklı projeler. Öğrenmeye ve ürün geliştirmeye odaklı.</p>
+          <p class="muted" data-i18n="subtitle">Elektrik-Elektronik Mühendisliği bölümünden yeni mezun oldum ve mühendislik alanında kendimi geliştirebileceğim, üretken bir ekip içinde yer alabileceğim bir pozisyon arıyorum. Üniversite sürecinde kablosuz enerji transferi, otomasyon ve güç elektroniği alanlarında projeler ve simülasyon çalışmaları yaptım. Öğrenmeye açık, disiplinli ve sorumluluk sahibi biriyim. Sahada ve ofis ortamında tecrübe kazanarak, teknik bilgi birikimimi gerçek projelere yansıtmayı ve çalıştığım kuruma değer katmayı hedefliyorum.</p>
           <div class="badges">
             <span class="badge">STM32</span>
             <span class="badge">Arduino</span>
@@ -361,7 +361,7 @@
       tr: {
         nav_home:"Ana Sayfa", nav_about:"Hakkımda", nav_skills:"Yetenekler", nav_projects:"Projeler", nav_contact:"İletişim", nav_certs:"Sertifikalar",
         title:"Elektrik‑Elektronik Mühendisi",
-        subtitle:"Gömülü sistemler, güç elektroniği ve kontrol odaklı projeler. Öğrenmeye ve ürün geliştirmeye odaklı.",
+        subtitle:"Elektrik-Elektronik Mühendisliği bölümünden yeni mezun oldum ve mühendislik alanında kendimi geliştirebileceğim, üretken bir ekip içinde yer alabileceğim bir pozisyon arıyorum. Üniversite sürecinde kablosuz enerji transferi, otomasyon ve güç elektroniği alanlarında projeler ve simülasyon çalışmaları yaptım. Öğrenmeye açık, disiplinli ve sorumluluk sahibi biriyim. Sahada ve ofis ortamında tecrübe kazanarak, teknik bilgi birikimimi gerçek projelere yansıtmayı ve çalıştığım kuruma değer katmayı hedefliyorum.",
         badge_power:"Güç Elektroniği", badge_control:"Kontrol", cta:"İletişime Geç",
         about_title:"Hakkımda",
         about_p1:"Elektrik-Elektronik Mühendisiyim ve kariyerimi belirli bir alanla sınırlamak yerine, ilerlemek istediğim yolu bilinçli şekilde inşa etmeyi hedefleyen bir mühendislik anlayışına sahibim. Gömülü sistemler, elektronik donanım ve sistem entegrasyonu başta olmak üzere; bir ürünün veya teknolojinin yalnızca tek bir parçasını değil, bütününü anlayabilen bir mühendis olmayı önemsiyorum. Bu nedenle, her alanda yüzeysel bilgi yerine; farklı disiplinlerde anlamlı ve birbiriyle bağlantılı bilgi birikimi oluşturmaya odaklanıyorum.",
@@ -403,7 +403,7 @@
       en: {
         nav_home:"Home", nav_about:"About", nav_skills:"Skills", nav_projects:"Projects", nav_contact:"Contact", nav_certs:"Certificates",
         title:"Electrical & Electronics Engineer",
-        subtitle:"Embedded systems, power electronics and control‑oriented projects. Focused on learning and building products.",
+        subtitle:"I am a recent Electrical-Electronics Engineering graduate looking for a position where I can develop myself in the engineering field and be part of a productive team. During university, I worked on projects and simulations in wireless power transfer, automation, and power electronics. I am open to learning, disciplined, and responsible. I aim to reflect my technical knowledge on real projects and add value to the institution I work for by gaining experience in the field and office environment.",
         badge_power:"Power Electronics", badge_control:"Control", cta:"Contact Me",
         about_title:"About",
         about_p1:"I am an Electrical & Electronics Engineer with an engineering mindset that aims to consciously build the path I want to advance in, rather than limiting my career to a specific field. I care about being an engineer who understands not just a single part of a product or technology, but the whole, especially in embedded systems, electronic hardware, and system integration. Therefore, instead of superficial knowledge in every field, I focus on creating meaningful and interconnected knowledge in different disciplines.",
@@ -484,17 +484,14 @@
       setTimeout(()=> locked = false, 900);
     }
 
-    // Scrollable alan kontrolü (GÜNCEL)
+    // Scrollable alan kontrolü
     function isInsideScrollable(target) {
       const el = target.closest('.card');
       if (!el) return false;
-      // Eğer içerik sığıyorsa scroll etmeye gerek yoktur, o zaman sayfa değişebilir
-      // Eğer içerik taşmışsa (scrollHeight > clientHeight), o zaman scroll önceliği yazıdadır.
       return el.scrollHeight > el.clientHeight;
     }
 
     window.addEventListener('wheel', (e)=>{
-      // Eğer scroll edilebilir (taşan) bir içeriğin üzerindeysek sayfa değişmesin
       if (isInsideScrollable(e.target)) return;
 
       if(Math.abs(e.deltaY) < 20) return;
@@ -505,7 +502,6 @@
     let sy = 0;
     window.addEventListener('touchstart', e=>{ sy = e.touches[0].clientY; }, {passive:true});
     window.addEventListener('touchend', e=>{
-      // Scroll edilebilir alanın üzerindeysek sayfa değişmesin
       if (isInsideScrollable(e.target)) return;
 
       const ey = e.changedTouches[0].clientY;
