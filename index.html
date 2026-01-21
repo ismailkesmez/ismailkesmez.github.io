@@ -25,15 +25,18 @@
 
     /* Sticky glass header like Apple */
     header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(14px + env(safe-area-inset-top)) 20px 14px;background:#0b0f14;backdrop-filter: blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
-    header strong{font-weight:900;letter-spacing:.3px}
+    
+    /* GÜNCELLEME: İsim rengi mavi yapıldı */
+    header strong{font-weight:900;letter-spacing:.3px; color: var(--accent);}
+    
     nav a{margin:0 10px;color:var(--muted);cursor:pointer;font-weight:600}
     nav a.active{color:var(--text)}
     nav a:hover{color:var(--text)}
 
     .lang{display:flex;align-items:center;gap:10px}
     .flag{width:24px;height:16px;object-fit:cover;border-radius:4px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.4);transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease}
-.flag:hover{transform:translateY(-2px) scale(1.08); box-shadow:0 10px 24px rgba(0,0,0,.5)}
-.flag:active{transform:scale(0.96); opacity:.9}
+    .flag:hover{transform:translateY(-2px) scale(1.08); box-shadow:0 10px 24px rgba(0,0,0,.5)}
+    .flag:active{transform:scale(0.96); opacity:.9}
 
     /* Presentation container */
     .deck{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top));bottom:env(safe-area-inset-bottom);height:auto;background:#0b0f14;}
@@ -41,26 +44,23 @@
     .slide{height:100%; display:flex; align-items:center; justify-content:center; padding:24px}
 
     /* Cards / sections */
-    .card{width:100%;
-          max-width:1000px;
-          background:rgba(17,24,38,.75); /* DAHA KOYU */
-          backdrop-filter:blur(12px);
-          border-radius:28px;
-          padding:36px;
-          border:1px solid rgba(255,255,255,.12);
-          box-shadow:0 20px 60px rgba(0,0,0,.55);
-          }
+    .card{max-width:1000px; width:100%; background:var(--glass); backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,.45)}
 
     h1{font-size: clamp(32px, 7vw, 72px); line-height:1.1; margin:0 0 12px; font-weight:900; letter-spacing:-.02em}
     h2{font-size: clamp(26px, 3.2vw, 44px); margin:0 0 12px}
     h3{margin:14px 0 6px;font-size:22px}
     .muted{color:var(--muted)}
+    
+    /* Liste stil güncellemesi (Sertifikalar için) */
+    ul.cert-list li { margin-bottom: 8px; list-style-type: square; margin-left: 20px; color: var(--text); }
 
     .badges{margin:18px 0 6px}
     .badge{display:inline-block;padding:10px 14px;border-radius:999px;background:#0b1220;border:1px solid rgba(255,255,255,.12);color:#c7d2fe;margin-right:10px;margin-bottom:10px}
 
+    /* GÜNCELLEME: Buton içindeki yazı rengi beyaz yapıldı (Siyah kaldırıldı) */
     .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 20px;border-radius:18px;
-      background:linear-gradient(135deg,#38bdf8,#60a5fa); color:#020617; font-weight:900}
+      background:linear-gradient(135deg,#38bdf8,#60a5fa); color:#ffffff; font-weight:900}
 
     .grid-2{display:grid;grid-template-columns:1fr 1fr; gap:24px}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
@@ -77,38 +77,33 @@
 
     footer{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom);background:#0b0f14;text-align:center;opacity:.6;font-size:12px;padding-bottom:6px;}
 
-/* Skills background */
-.skills-slide{position:relative;
-              background:
-              linear-gradient(rgba(11,15,20,.65), rgba(11,15,20,.85)),
-              url("./assets/images/stm32.png");
-              background-repeat:no-repeat;
-              background-position:center right;
-              background-size:520px auto;}
-.skills-card{position:relative;z-index:1;}
+    /* GÜNCELLEME: Dosya yolu assets/images olarak düzeltildi */
+    .skills-slide{position:relative;background:url('assets/images/stm32.png') center/contain no-repeat;}
+    .skills-slide::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center, rgba(11,15,20,.25), rgba(11,15,20,.85));}
+    .skills-card{position:relative;z-index:1;}
 
-/* Contact icons */
-.contact-list{display:flex;flex-direction:column;gap:16px;margin-top:20px}
-.contact-item{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, background .35s ease;position:relative;max-width:100%;overflow:hidden;word-break:break-word;}
-.contact-item:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.45);background:rgba(255,255,255,.07)}
-.contact-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#38bdf8,#60a5fa);color:#020617;font-size:20px;flex-shrink:0}
-.contact-text{display:flex;flex-direction:column}
-.contact-text span{font-size:13px;color:var(--muted)}
-.contact-text strong{font-size:16px;color:var(--text)}
+    /* Contact icons */
+    .contact-list{display:flex;flex-direction:column;gap:16px;margin-top:20px}
+    .contact-item{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, background .35s ease;position:relative;max-width:100%;overflow:hidden;word-break:break-word;}
+    .contact-item:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.45);background:rgba(255,255,255,.07)}
+    
+    /* GÜNCELLEME: İkon içi yazı rengi beyaz yapıldı */
+    .contact-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#38bdf8,#60a5fa);color:#ffffff;font-size:20px;flex-shrink:0}
+    
+    .contact-text{display:flex;flex-direction:column}
+    .contact-text span{font-size:13px;color:var(--muted)}
+    .contact-text strong{font-size:16px;color:var(--text)}
 
-/* Press / tap animation */
-@keyframes press{
-  0%{transform:scale(1)}
-  50%{transform:scale(.96)}
-  100%{transform:scale(1)}
-}
-.contact-item:active{
-  animation:press .18s ease-out;
-  box-shadow:0 8px 20px rgba(0,0,0,.35);
-}
-     h1, h2, h3, h4, h5, h6 {
-    color: #e5e7eb !important;
-  }
+    /* Press / tap animation */
+    @keyframes press{
+      0%{transform:scale(1)}
+      50%{transform:scale(.96)}
+      100%{transform:scale(1)}
+    }
+    .contact-item:active{
+      animation:press .18s ease-out;
+      box-shadow:0 8px 20px rgba(0,0,0,.35);
+    }
   </style>
 </head>
 <body>
@@ -122,7 +117,8 @@
         <a data-index="1" data-i18n="nav_about">Hakkımda</a>
         <a data-index="2" data-i18n="nav_skills">Yetenekler</a>
         <a data-index="3" data-i18n="nav_projects">Projeler</a>
-        <a data-index="4" data-i18n="nav_contact">İletişim</a>
+        <a data-index="4" data-i18n="nav_certs">Sertifikalar</a>
+        <a data-index="5" data-i18n="nav_contact">İletişim</a>
       </nav>
       <div class="lang">
         <img class="flag" id="tr" title="Türkçe" alt="TR" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg" onerror="this.onerror=null;this.src='https://flagcdn.com/w20/tr.png';">
@@ -134,7 +130,6 @@
   <div class="deck">
     <div class="slides" id="slides">
 
-      <!-- SLIDE 1: HERO -->
       <section class="slide">
         <div class="card reveal show">
           <h1 data-i18n="title">Elektrik‑Elektronik Mühendisi</h1>
@@ -152,7 +147,6 @@
         </div>
       </section>
 
-      <!-- SLIDE 2: ABOUT -->
       <section class="slide">
         <div class="card reveal">
           <h2 data-i18n="about_title">Hakkımda</h2>
@@ -165,7 +159,6 @@
         </div>
       </section>
 
-      <!-- SLIDE 3: SKILLS -->
       <section class="slide skills-slide">
         <div class="card reveal skills-card">
           <h2 data-i18n="skills_title">Yetenekler</h2>
@@ -183,7 +176,6 @@
         </div>
       </section>
 
-      <!-- SLIDE 4: PROJECTS -->
       <section class="slide">
         <div class="card reveal">
           <h2 data-i18n="projects_title">Projeler</h2>
@@ -194,7 +186,19 @@
         </div>
       </section>
 
-      <!-- SLIDE 5: CONTACT -->
+      <section class="slide">
+        <div class="card reveal">
+          <h2 data-i18n="cert_title">Sertifikalar</h2>
+          <p class="muted" data-i18n="cert_desc">Aldığım eğitimler ve kazandığım yetkinlik sertifikaları:</p>
+          <ul class="cert-list">
+             <li data-i18n="c1">Udemy: STM32 ile Gömülü Sistemler (Örnek)</li>
+            <li data-i18n="c2">Coursera: Power Electronics Specialization (Örnek)</li>
+            <li data-i18n="c3">Yabancı Dil: İngilizce B2 Sertifikası (Örnek)</li>
+            <li data-i18n="c4">TÜBİTAK Proje Katılım Belgesi (Örnek)</li>
+          </ul>
+        </div>
+      </section>
+
       <section class="slide">
         <div class="card reveal">
           <h2 data-i18n="contact_title">İletişim</h2>
@@ -235,7 +239,7 @@
   <script>
     const dict = {
       tr: {
-        nav_home:"Ana Sayfa", nav_about:"Hakkımda", nav_skills:"Yetenekler", nav_projects:"Projeler", nav_contact:"İletişim",
+        nav_home:"Ana Sayfa", nav_about:"Hakkımda", nav_skills:"Yetenekler", nav_projects:"Projeler", nav_contact:"İletişim", nav_certs:"Sertifikalar",
         title:"Elektrik‑Elektronik Mühendisi",
         subtitle:"Gömülü sistemler, güç elektroniği ve kontrol odaklı projeler. Öğrenmeye ve ürün geliştirmeye odaklı.",
         badge_power:"Güç Elektroniği", badge_control:"Kontrol", cta:"İletişime Geç",
@@ -257,10 +261,16 @@
         p2_desc:"6 kW panel + akü + inverter ile 4 kW dalgıç pompa besleme.",
         contact_title:"İletişim",
         email:"E‑posta:",
+        cert_title: "Sertifikalar",
+        cert_desc: "Aldığım eğitimler ve kazandığım yetkinlik sertifikaları:",
+        c1: "Udemy: STM32 ile Gömülü Sistemler (Örnek)",
+        c2: "Coursera: Power Electronics Specialization (Örnek)",
+        c3: "Yabancı Dil: İngilizce B2 Sertifikası (Örnek)",
+        c4: "TÜBİTAK Proje Katılım Belgesi (Örnek)",
         replace_note:"(Bilgileri kendinle değiştir)"
       },
       en: {
-        nav_home:"Home", nav_about:"About", nav_skills:"Skills", nav_projects:"Projects", nav_contact:"Contact",
+        nav_home:"Home", nav_about:"About", nav_skills:"Skills", nav_projects:"Projects", nav_contact:"Contact", nav_certs:"Certificates",
         title:"Electrical & Electronics Engineer",
         subtitle:"Embedded systems, power electronics and control‑oriented projects. Focused on learning and building products.",
         badge_power:"Power Electronics", badge_control:"Control", cta:"Contact Me",
@@ -282,6 +292,12 @@
         p2_desc:"Feeding a 4 kW submersible pump using 6 kW panels + battery + inverter.",
         contact_title:"Contact",
         email:"Email:",
+        cert_title: "Certificates",
+        cert_desc: "Trainings I received and competency certificates I earned:",
+        c1: "Udemy: Embedded Systems with STM32 (Example)",
+        c2: "Coursera: Power Electronics Specialization (Example)",
+        c3: "Language: English B2 Certificate (Example)",
+        c4: "TUBITAK Project Participation (Example)",
         replace_note:"(Replace with your own information)"
       }
     };
