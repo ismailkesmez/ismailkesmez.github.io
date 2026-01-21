@@ -50,7 +50,7 @@
     .card{max-width:1000px; width:100%; background:var(--glass); backdrop-filter: blur(10px);
       border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,.45);
       color: #ffffff;
-      /* Kart içeriği taşarsa scroll olsun */
+      /* İçerik taşarsa scroll olsun */
       max-height: 80vh; 
       overflow-y: auto;
       display: flex; flex-direction: column;
@@ -71,7 +71,7 @@
 
     h1{font-size: clamp(32px, 7vw, 72px); line-height:1.1; margin-bottom:12px; font-weight:900; letter-spacing:-.02em}
     h2{font-size: clamp(26px, 3.2vw, 44px); margin-bottom:20px}
-    h3{margin:14px 0 6px;font-size:22px}
+    h3{margin:24px 0 8px; font-size:22px; color:var(--accent) !important;} /* Alt başlıkları vurguladık */
     
     .muted{color: #f1f5f9 !important;}
     
@@ -234,17 +234,25 @@
         
         <div class="card reveal skills-card">
           <h2 data-i18n="skills_title">Yetenekler</h2>
-          <div class="grid-2">
-            <ul>
-              <li data-i18n="skills_1">Gömülü: STM32, Arduino</li>
-              <li data-i18n="skills_2">Diller: C/C++, temel Python</li>
-              <li data-i18n="skills_3">Donanım: Şematik/PCB okuma, lehim</li>
-            </ul>
-            <ul>
-              <li data-i18n="skills_4">Güç: DC-DC, inverter, ölçüm</li>
-              <li data-i18n="skills_5">Araçlar: Git, VS Code, Proteus</li>
-            </ul>
-          </div>
+          
+          <h3 data-i18n="s1_t">Gömülü Sistemler (Embedded Systems)</h3>
+          <p class="muted" data-i18n="s1_d">Gömülü sistemler alanında, mikrodenetleyici tabanlı sistemlerin temel çalışma prensipleri üzerinde bilgi birikimimi geliştiriyorum. MCU mimarisi, çevresel birimler (peripheral), clock yapısı ve bellek organizasyonu gibi konularda teorik altyapıya sahibim. STM32 ekosistemi üzerinde; GPIO, timer, interrupt, ADC, UART ve I2C gibi temel modüllerin nasıl yapılandırıldığını ve sistem davranışını nasıl etkilediğini biliyorum. Gömülü yazılımın, donanımdan bağımsız düşünülemeyeceğinin farkındayım ve bu nedenle konfigürasyon, zamanlama ve deterministik davranış konularına özellikle önem veriyorum.</p>
+
+          <h3 data-i18n="s2_t">Elektronik ve Devre Bilgisi</h3>
+          <p class="muted" data-i18n="s2_d">Analog ve dijital elektronik temel prensiplerine hâkimim. Elektronik devrelerin çalışma mantığını yalnızca şema seviyesinde değil, sistem davranışı açısından da değerlendirebiliyorum. Güç besleme, inverter yapıları ve sinyal davranışı konularında temel bilgiye sahibim. Elektronik tasarımın; kararlılık, verim ve güvenilirlik kriterleriyle birlikte ele alınması gerektiğini biliyor, bu doğrultuda sistem seviyesinde düşünmeye çalışıyorum.</p>
+
+          <h3 data-i18n="s3_t">Güç Elektroniği ve Sistem Davranışı</h3>
+          <p class="muted" data-i18n="s3_d">Bitirme projem kapsamında inverter sistemleri, frekans–gerilim ilişkisi ve bu parametrelerin sistem davranışı üzerindeki etkileri üzerine çalıştım. Güç elektroniği uygulamalarında verim, ısınma ve kontrolün öneminin farkındayım. Bu alanda edindiğim bilgi, bana yalnızca devreyi değil, devrenin sistemi nasıl etkilediğini analiz etme yeteneği kazandırdı.</p>
+
+          <h3 data-i18n="s4_t">Öğrenme ve Adaptasyon Yeteneği</h3>
+          <p class="muted" data-i18n="s4_d">Yeni teknolojilere ve araçlara hızlı adapte olabilen bir yapıya sahibim. Her gün kendimi geliştirmeyi, öğrendiğim bilgileri pekiştirmeyi ve güncel kalmayı bir alışkanlık haline getirdim. Farklı disiplinlerde bilgi sahibi olmanın, mühendislikte daha doğru ve bütüncül kararlar almayı sağladığına inanıyorum.</p>
+
+          <h3 data-i18n="s5_t">Program Dilleri</h3>
+          <p class="muted" data-i18n="s5_d_c"><strong>C Dili:</strong> Arduino UNO ve Mega platformlarında gömülü sistem uygulamaları geliştirdim. Sensör okuma, motor kontrolü, röle tetikleme ve zamanlama tabanlı kontrol algoritmaları yazdım. Donanım-yazılım etkileşimi gerektiren projelerde aktif olarak kullandım.</p>
+          <p class="muted" data-i18n="s5_d_cpp"><strong>C++ Dili:</strong> Arduino projelerinde modüler ve okunabilir kod yapıları oluşturdum. Kütüphane kullanımı, fonksiyonel ayrıştırma ve temel nesne tabanlı yapı ile mikrodenetleyici uygulamaları geliştirdim.</p>
+          <p class="muted" data-i18n="s5_d_py"><strong>Python:</strong> OpenCV kütüphanesini kullanarak görüntü işleme uygulamalarında görev aldım. Bir projede hareket halindeki bir aracın plakasının drone görüntüsü üzerinden tespit ve takibini gerçekleştiren sistemin yazılımını inceledim.</p>
+          <p class="muted" data-i18n="s5_d_plc"><strong>PLC:</strong> Siemens TIA Portal ortamında Ladder Diagram kullanarak temel seviye PLC uygulamaları geliştirdim. Giriş-çıkış kontrolü, zamanlayıcılar ve basit otomasyon senaryoları üzerine çalışmalar yaptım.</p>
+
         </div>
       </section>
 
@@ -264,7 +272,6 @@
           <p class="muted" data-i18n="cert_desc">Aldığım eğitimler ve kazandığım yetkinlik sertifikaları:</p>
           
           <div class="cert-grid">
-            
             <a class="cert-item" href="assets/certificates/Elektrik Proje Temel Eğitimi_Udemy.png" target="_blank">
               <img src="assets/certificates/Elektrik Proje Temel Eğitimi_Udemy.png" alt="Udemy Elektrik Proje" loading="lazy">
             </a>
@@ -277,7 +284,6 @@
             <a class="cert-item" href="assets/certificates/Temel_elektrik_elektronik_kursu_udemy.png" target="_blank">
               <img src="assets/certificates/Temel_elektrik_elektronik_kursu_udemy.png" alt="Temel Elektrik Elektronik" loading="lazy">
             </a>
-
             <a class="cert-item" href="assets/certificates/Finansal Okuryazarlık.png" target="_blank">
               <img src="assets/certificates/Finansal Okuryazarlık.png" alt="Finansal Okuryazarlık" loading="lazy">
             </a>
@@ -290,7 +296,6 @@
             <a class="cert-item" href="assets/certificates/Üretken_yz_nedir_Linkedin.png" target="_blank">
               <img src="assets/certificates/Üretken_yz_nedir_Linkedin.png" alt="Üretken YZ Nedir" loading="lazy">
             </a>
-            
             <a class="cert-item" href="assets/certificates/Proje Yönetimi _ BTK.png" target="_blank">
               <img src="assets/certificates/Proje Yönetimi _ BTK.png" alt="Proje Yönetimi BTK" loading="lazy">
             </a>
@@ -303,7 +308,6 @@
             <a class="cert-item" href="assets/certificates/Gönüllü sertifikası 3.png" target="_blank">
               <img src="assets/certificates/Gönüllü sertifikası 3.png" alt="Wings for Life" loading="lazy">
             </a>
-
           </div>
         </div>
       </section>
@@ -353,18 +357,27 @@
         subtitle:"Gömülü sistemler, güç elektroniği ve kontrol odaklı projeler. Öğrenmeye ve ürün geliştirmeye odaklı.",
         badge_power:"Güç Elektroniği", badge_control:"Kontrol", cta:"İletişime Geç",
         about_title:"Hakkımda",
-        // Yeni metin (Parçalanmış)
         about_p1:"Elektrik-Elektronik Mühendisiyim ve kariyerimi belirli bir alanla sınırlamak yerine, ilerlemek istediğim yolu bilinçli şekilde inşa etmeyi hedefleyen bir mühendislik anlayışına sahibim. Gömülü sistemler, elektronik donanım ve sistem entegrasyonu başta olmak üzere; bir ürünün veya teknolojinin yalnızca tek bir parçasını değil, bütününü anlayabilen bir mühendis olmayı önemsiyorum. Bu nedenle, her alanda yüzeysel bilgi yerine; farklı disiplinlerde anlamlı ve birbiriyle bağlantılı bilgi birikimi oluşturmaya odaklanıyorum.",
         about_p2:"Mühendislik benim için durağan bir meslek değil, sürekli gelişim gerektiren dinamik bir süreçtir. Bu bakış açısıyla, her gün kendime yeni bir şey katmayı, teknik bilgimi güncel tutmayı ve öğrendiklerimi pratiğe dökmeyi temel prensip haline getirdim. Teknolojinin hızlı değiştiği günümüzde, yenilikleri kaçırmamak, yalnızca takip etmekle değil; bu yeniliklerin sistemler üzerindeki etkisini anlayabilmekle mümkündür. Bu yüzden hem teorik altyapımı güçlendirmeye hem de uygulamalı çalışmalarla bilgimi pekiştirmeye önem veriyorum.",
         about_p3:"Farklı sektörlerde ve projelerde karşılaşılabilecek değişken gereksinimlere hızlı adaptasyon sağlayabilmek, benim için teknik yetkinlik kadar değerlidir. Yeni bir teknolojiye, araca veya probleme yaklaşırken öğrenmeye açık olmak ve çözüm odaklı düşünmek, çalışma disiplinimin temelini oluşturur. Bilginin tek başına yeterli olmadığı; doğru yerde, doğru şekilde kullanılmasının fark yarattığına inanıyorum.",
         about_p4:"Uzun vadede hedefim; sürekli gelişen, değişen teknolojilere uyum sağlayabilen, farklı disiplinleri bir araya getirerek katma değer üreten ve ilerlediği yolu bilinçli şekilde şekillendiren bir mühendis olarak kariyerimi sürdürmektir.",
         
+        // --- SKILLS SECTION TR ---
         skills_title:"Yetenekler",
-        skills_1:"Gömülü: STM32, Arduino",
-        skills_2:"Diller: C/C++, temel Python",
-        skills_3:"Donanım: Şematik/PCB okuma, lehim",
-        skills_4:"Güç: DC‑DC, inverter, ölçüm",
-        skills_5:"Araçlar: Git, VS Code, Proteus",
+        s1_t: "Gömülü Sistemler (Embedded Systems)",
+        s1_d: "Gömülü sistemler alanında, mikrodenetleyici tabanlı sistemlerin temel çalışma prensipleri üzerinde bilgi birikimimi geliştiriyorum. MCU mimarisi, çevresel birimler (peripheral), clock yapısı ve bellek organizasyonu gibi konularda teorik altyapıya sahibim. STM32 ekosistemi üzerinde; GPIO, timer, interrupt, ADC, UART ve I2C gibi temel modüllerin nasıl yapılandırıldığını ve sistem davranışını nasıl etkilediğini biliyorum. Gömülü yazılımın, donanımdan bağımsız düşünülemeyeceğinin farkındayım ve bu nedenle konfigürasyon, zamanlama ve deterministik davranış konularına özellikle önem veriyorum.",
+        s2_t: "Elektronik ve Devre Bilgisi",
+        s2_d: "Analog ve dijital elektronik temel prensiplerine hâkimim. Elektronik devrelerin çalışma mantığını yalnızca şema seviyesinde değil, sistem davranışı açısından da değerlendirebiliyorum. Güç besleme, inverter yapıları ve sinyal davranışı konularında temel bilgiye sahibim. Elektronik tasarımın; kararlılık, verim ve güvenilirlik kriterleriyle birlikte ele alınması gerektiğini biliyor, bu doğrultuda sistem seviyesinde düşünmeye çalışıyorum.",
+        s3_t: "Güç Elektroniği ve Sistem Davranışı",
+        s3_d: "Bitirme projem kapsamında inverter sistemleri, frekans–gerilim ilişkisi ve bu parametrelerin sistem davranışı üzerindeki etkileri üzerine çalıştım. Güç elektroniği uygulamalarında verim, ısınma ve kontrolün öneminin farkındayım. Bu alanda edindiğim bilgi, bana yalnızca devreyi değil, devrenin sistemi nasıl etkilediğini analiz etme yeteneği kazandırdı.",
+        s4_t: "Öğrenme ve Adaptasyon Yeteneği",
+        s4_d: "Yeni teknolojilere ve araçlara hızlı adapte olabilen bir yapıya sahibim. Her gün kendimi geliştirmeyi, öğrendiğim bilgileri pekiştirmeyi ve güncel kalmayı bir alışkanlık haline getirdim. Farklı disiplinlerde bilgi sahibi olmanın, mühendislikte daha doğru ve bütüncül kararlar almayı sağladığına inanıyorum.",
+        s5_t: "Program Dilleri",
+        s5_d_c: "<strong>C Dili:</strong> Arduino UNO ve Mega platformlarında gömülü sistem uygulamaları geliştirdim. Sensör okuma, motor kontrolü, röle tetikleme ve zamanlama tabanlı kontrol algoritmaları yazdım. Donanım-yazılım etkileşimi gerektiren projelerde aktif olarak kullandım.",
+        s5_d_cpp: "<strong>C++ Dili:</strong> Arduino projelerinde modüler ve okunabilir kod yapıları oluşturdum. Kütüphane kullanımı, fonksiyonel ayrıştırma ve temel nesne tabanlı yapı ile mikrodenetleyici uygulamaları geliştirdim.",
+        s5_d_py: "<strong>Python:</strong> OpenCV kütüphanesini kullanarak görüntü işleme uygulamalarında görev aldım. Bir projede hareket halindeki bir aracın plakasının drone görüntüsü üzerinden tespit ve takibini gerçekleştiren sistemin yazılımını inceledim.",
+        s5_d_plc: "<strong>PLC:</strong> Siemens TIA Portal ortamında Ladder Diagram kullanarak temel seviye PLC uygulamaları geliştirdim. Giriş-çıkış kontrolü, zamanlayıcılar ve basit otomasyon senaryoları üzerine çalışmalar yaptım.",
+
         projects_title:"Projeler",
         p1_title:"Kablosuz Şarjlı Araç Pisti",
         p1_desc:"IR sensörlerle bobin seçimi, 220V kare dalga inverter, araç üzerinde doğrultma ve regülasyon.",
@@ -382,18 +395,27 @@
         subtitle:"Embedded systems, power electronics and control‑oriented projects. Focused on learning and building products.",
         badge_power:"Power Electronics", badge_control:"Control", cta:"Contact Me",
         about_title:"About",
-        // Yeni metnin İngilizce çevirisi
         about_p1:"I am an Electrical & Electronics Engineer with an engineering mindset that aims to consciously build the path I want to advance in, rather than limiting my career to a specific field. I care about being an engineer who understands not just a single part of a product or technology, but the whole, especially in embedded systems, electronic hardware, and system integration. Therefore, instead of superficial knowledge in every field, I focus on creating meaningful and interconnected knowledge in different disciplines.",
         about_p2:"For me, engineering is not a static profession, but a dynamic process that requires continuous improvement. With this perspective, I have made it a fundamental principle to add something new to myself every day, to keep my technical knowledge up to date, and to put what I have learned into practice. In today's rapidly changing technology, not missing innovations is possible not only by following them but by understanding their impact on systems. That is why I attach importance to both strengthening my theoretical infrastructure and reinforcing my knowledge with practical studies.",
         about_p3:"Being able to adapt quickly to variable requirements that may be encountered in different sectors and projects is as valuable to me as technical competence. Being open to learning and thinking solution-oriented when approaching a new technology, tool, or problem forms the basis of my work discipline. I believe that knowledge alone is not enough; using it in the right place and in the right way makes the difference.",
         about_p4:"My long-term goal is to continue my career as an engineer who constantly develops, adapts to changing technologies, produces added value by bringing different disciplines together, and consciously shapes the path he advances.",
 
+        // --- SKILLS SECTION EN ---
         skills_title:"Skills",
-        skills_1:"Embedded: STM32, Arduino",
-        skills_2:"Languages: C/C++, basic Python",
-        skills_3:"Hardware: Schematic/PCB reading, soldering",
-        skills_4:"Power: DC‑DC, inverter, measurements",
-        skills_5:"Tools: Git, VS Code, Proteus",
+        s1_t: "Embedded Systems",
+        s1_d: "I am developing my knowledge on the basic working principles of microcontroller-based systems. I have a theoretical background in subjects such as MCU architecture, peripherals, clock structure, and memory organization. On the STM32 ecosystem; I know how basic modules such as GPIO, timer, interrupt, ADC, UART, and I2C are configured and how they affect system behavior. I realize that embedded software cannot be considered independently of hardware, so I attach particular importance to configuration, timing, and deterministic behavior.",
+        s2_t: "Electronics and Circuit Knowledge",
+        s2_d: "I am proficient in the basic principles of analog and digital electronics. I can evaluate the working logic of electronic circuits not only at the schematic level but also in terms of system behavior. I have basic knowledge of power supply, inverter structures, and signal behavior. I know that electronic design should be handled with stability, efficiency, and reliability criteria, and I try to think at the system level in this direction.",
+        s3_t: "Power Electronics and System Behavior",
+        s3_d: "Within the scope of my graduation project, I worked on inverter systems, frequency-voltage relationship, and the effects of these parameters on system behavior. I am aware of the importance of efficiency, heating, and control in power electronics applications. The knowledge I gained in this field gave me the ability to analyze not only the circuit but also how the circuit affects the system.",
+        s4_t: "Learning and Adaptability",
+        s4_d: "I have a structure that can adapt quickly to new technologies and tools. I have made it a habit to improve myself every day, reinforce the knowledge I have learned, and stay up to date. I believe that having knowledge in different disciplines enables making more accurate and holistic decisions in engineering.",
+        s5_t: "Programming Languages",
+        s5_d_c: "<strong>C Language:</strong> Developed embedded system applications on Arduino UNO and Mega platforms. Wrote sensor reading, motor control, relay triggering, and timing-based control algorithms. Used actively in projects requiring hardware-software interaction.",
+        s5_d_cpp: "<strong>C++ Language:</strong> Created modular and readable code structures in Arduino projects. Developed microcontroller applications with library usage, functional decomposition, and basic object-oriented structure.",
+        s5_d_py: "<strong>Python:</strong> Took part in image processing applications using OpenCV. Examined the software of a system that detects and tracks the license plate of a moving vehicle via drone image.",
+        s5_d_plc: "<strong>PLC:</strong> Developed basic level PLC applications using Ladder Diagram in Siemens TIA Portal environment. Worked on I/O control, timers, and simple automation scenarios.",
+
         projects_title:"Projects",
         p1_title:"Wireless Charging Track",
         p1_desc:"Coil selection with IR sensors, 220V square‑wave inverter, rectification and regulation on the vehicle.",
@@ -411,7 +433,10 @@
       document.documentElement.lang = l;
       document.querySelectorAll('[data-i18n]').forEach(el=>{
         const k = el.getAttribute('data-i18n');
-        if(dict[l][k]) el.textContent = dict[l][k];
+        if(dict[l][k]) {
+           // HTML içerik desteği için innerHTML kullanıyoruz (bold etiketleri için)
+           el.innerHTML = dict[l][k];
+        }
       });
       localStorage.setItem('lang', l);
     }
