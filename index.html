@@ -81,7 +81,8 @@
     .badge{display:inline-block;padding:10px 14px;border-radius:999px;background:#0b1220;border:1px solid rgba(255,255,255,.12);color:#c7d2fe;margin-right:10px;margin-bottom:10px}
 
     .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 20px;border-radius:18px;
-      background:linear-gradient(135deg,#38bdf8,#60a5fa); color:#ffffff !important; font-weight:900}
+      background:linear-gradient(135deg,#38bdf8,#60a5fa); color:#ffffff !important; font-weight:900; text-decoration: none; transition: transform 0.2s ease;}
+    .btn:hover{ transform: scale(1.02); }
 
     .grid-2{display:grid;grid-template-columns:1fr 1fr; gap:24px}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
@@ -214,8 +215,9 @@
             <span class="badge" data-i18n="badge_control">Kontrol</span>
             <span class="badge">C/C++</span>
           </div>
-          <div style="margin-top:24px">
+          <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
             <a class="btn" href="mailto:ismailkesmez23@gmail.com" data-i18n="cta">İletişime Geç</a>
+            <a class="btn" href="assets/documents/Ismail_Kesmez_CV.pdf" target="_blank" data-i18n="cta_cv">CV Görüntüle</a>
           </div>
         </div>
       </section>
@@ -362,7 +364,7 @@
         nav_home:"Ana Sayfa", nav_about:"Hakkımda", nav_skills:"Yetenekler", nav_projects:"Projeler", nav_contact:"İletişim", nav_certs:"Sertifikalar",
         title:"Elektrik‑Elektronik Mühendisi",
         subtitle:"Elektrik-Elektronik Mühendisliği bölümünden yeni mezun oldum ve mühendislik alanında kendimi geliştirebileceğim, üretken bir ekip içinde yer alabileceğim bir pozisyon arıyorum. Üniversite sürecinde kablosuz enerji transferi, otomasyon ve güç elektroniği alanlarında projeler ve simülasyon çalışmaları yaptım. Öğrenmeye açık, disiplinli ve sorumluluk sahibi biriyim. Sahada ve ofis ortamında tecrübe kazanarak, teknik bilgi birikimimi gerçek projelere yansıtmayı ve çalıştığım kuruma değer katmayı hedefliyorum.",
-        badge_power:"Güç Elektroniği", badge_control:"Kontrol", cta:"İletişime Geç",
+        badge_power:"Güç Elektroniği", badge_control:"Kontrol", cta:"İletişime Geç", cta_cv:"CV Görüntüle",
         about_title:"Hakkımda",
         about_p1:"Elektrik-Elektronik Mühendisiyim ve kariyerimi belirli bir alanla sınırlamak yerine, ilerlemek istediğim yolu bilinçli şekilde inşa etmeyi hedefleyen bir mühendislik anlayışına sahibim. Gömülü sistemler, elektronik donanım ve sistem entegrasyonu başta olmak üzere; bir ürünün veya teknolojinin yalnızca tek bir parçasını değil, bütününü anlayabilen bir mühendis olmayı önemsiyorum. Bu nedenle, her alanda yüzeysel bilgi yerine; farklı disiplinlerde anlamlı ve birbiriyle bağlantılı bilgi birikimi oluşturmaya odaklanıyorum.",
         about_p2:"Mühendislik benim için durağan bir meslek değil, sürekli gelişim gerektiren dinamik bir süreçtir. Bu bakış açısıyla, her gün kendime yeni bir şey katmayı, teknik bilgimi güncel tutmayı ve öğrendiklerimi pratiğe dökmeyi temel prensip haline getirdim. Teknolojinin hızlı değiştiği günümüzde, yenilikleri kaçırmamak, yalnızca takip etmekle değil; bu yeniliklerin sistemler üzerindeki etkisini anlayabilmekle mümkündür. Bu yüzden hem teorik altyapımı güçlendirmeye hem de uygulamalı çalışmalarla bilgimi pekiştirmeye önem veriyorum.",
@@ -404,7 +406,7 @@
         nav_home:"Home", nav_about:"About", nav_skills:"Skills", nav_projects:"Projects", nav_contact:"Contact", nav_certs:"Certificates",
         title:"Electrical & Electronics Engineer",
         subtitle:"I am a recent Electrical-Electronics Engineering graduate looking for a position where I can develop myself in the engineering field and be part of a productive team. During university, I worked on projects and simulations in wireless power transfer, automation, and power electronics. I am open to learning, disciplined, and responsible. I aim to reflect my technical knowledge on real projects and add value to the institution I work for by gaining experience in the field and office environment.",
-        badge_power:"Power Electronics", badge_control:"Control", cta:"Contact Me",
+        badge_power:"Power Electronics", badge_control:"Control", cta:"Contact Me", cta_cv:"View CV",
         about_title:"About",
         about_p1:"I am an Electrical & Electronics Engineer with an engineering mindset that aims to consciously build the path I want to advance in, rather than limiting my career to a specific field. I care about being an engineer who understands not just a single part of a product or technology, but the whole, especially in embedded systems, electronic hardware, and system integration. Therefore, instead of superficial knowledge in every field, I focus on creating meaningful and interconnected knowledge in different disciplines.",
         about_p2:"For me, engineering is not a static profession, but a dynamic process that requires continuous improvement. With this perspective, I have made it a fundamental principle to add something new to myself every day, to keep my technical knowledge up to date, and to put what I have learned into practice. In today's rapidly changing technology, not missing innovations is possible not only by following them but by understanding their impact on systems. That is why I attach importance to both strengthening my theoretical infrastructure and reinforcing my knowledge with practical studies.",
