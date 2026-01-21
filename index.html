@@ -50,15 +50,27 @@
     .card{max-width:1000px; width:100%; background:var(--glass); backdrop-filter: blur(10px);
       border:1px solid rgba(255,255,255,.08); border-radius:28px; padding:36px; box-shadow:0 20px 60px rgba(0,0,0,.45);
       color: #ffffff;
-      max-height: 85vh; /* İçerik taşarsa scroll açılması için limit */
+      /* Kart içeriği taşarsa scroll olsun */
+      max-height: 80vh; 
+      overflow-y: auto;
       display: flex; flex-direction: column;
     }
+
+    /* Kartın scrollbar tasarımı */
+    .card::-webkit-scrollbar { width: 6px; }
+    .card::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
+    .card::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+    .card::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
 
     h1, h2, h3, h4, h5, h6 { color: #ffffff !important; margin-top: 0;}
     p, li, span, div { color: #ffffff; }
 
+    /* Paragraflar arası boşluk */
+    .card p { margin-bottom: 16px; line-height: 1.6; }
+    .card p:last-child { margin-bottom: 0; }
+
     h1{font-size: clamp(32px, 7vw, 72px); line-height:1.1; margin-bottom:12px; font-weight:900; letter-spacing:-.02em}
-    h2{font-size: clamp(26px, 3.2vw, 44px); margin-bottom:12px}
+    h2{font-size: clamp(26px, 3.2vw, 44px); margin-bottom:20px}
     h3{margin:14px 0 6px;font-size:22px}
     
     .muted{color: #f1f5f9 !important;}
@@ -75,27 +87,18 @@
     /* --- SERTİFİKA GRID SİSTEMİ --- */
     .cert-grid {
       display: grid;
-      /* Mobilde 2 sütun */
       grid-template-columns: repeat(2, 1fr); 
       gap: 16px;
       margin-top: 24px;
-      overflow-y: auto; /* Dikey kaydırma */
       padding-right: 8px; 
     }
 
-    /* Masaüstünde 4 sütun */
     @media (min-width: 900px) {
       .cert-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 24px; 
       }
     }
-
-    /* Şık Scrollbar */
-    .cert-grid::-webkit-scrollbar { width: 6px; }
-    .cert-grid::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
-    .cert-grid::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
-    .cert-grid::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
 
     .cert-item {
       display: block;
@@ -115,10 +118,10 @@
 
     .cert-item img {
       width: 100%;
-      height: 100%; /* Kartın içini doldur */
-      object-fit: cover; /* Resmi orantılı kırp */
+      height: 100%; 
+      object-fit: cover; 
       display: block;
-      aspect-ratio: 4/3; /* Tüm sertifikaları aynı boyutta göstermek için oran */
+      aspect-ratio: 4/3; 
     }
     /* ----------------------------------- */
 
@@ -218,12 +221,10 @@
       <section class="slide">
         <div class="card reveal">
           <h2 data-i18n="about_title">Hakkımda</h2>
-          <p class="muted" data-i18n="about_p">Yeni mezun Elektrik‑Elektronik Mühendisiyim. STM32 ve Arduino ile gömülü projeler, inverter/indüktör gibi güç elektroniği uygulamaları ve kontrol sistemleri üzerinde çalıştım.</p>
-          <ul class="muted">
-            <li data-i18n="about_l1">Bitirme: Kablosuz enerji transferi prototipi</li>
-            <li data-i18n="about_l2">Güneş enerji sistemi ve inverter entegrasyonu</li>
-            <li data-i18n="about_l3">Ferrit çekirdekli bobin tasarımı (100 kHz)</li>
-          </ul>
+          <p class="muted" data-i18n="about_p1">Elektrik-Elektronik Mühendisiyim ve kariyerimi belirli bir alanla sınırlamak yerine, ilerlemek istediğim yolu bilinçli şekilde inşa etmeyi hedefleyen bir mühendislik anlayışına sahibim. Gömülü sistemler, elektronik donanım ve sistem entegrasyonu başta olmak üzere; bir ürünün veya teknolojinin yalnızca tek bir parçasını değil, bütününü anlayabilen bir mühendis olmayı önemsiyorum. Bu nedenle, her alanda yüzeysel bilgi yerine; farklı disiplinlerde anlamlı ve birbiriyle bağlantılı bilgi birikimi oluşturmaya odaklanıyorum.</p>
+          <p class="muted" data-i18n="about_p2">Mühendislik benim için durağan bir meslek değil, sürekli gelişim gerektiren dinamik bir süreçtir. Bu bakış açısıyla, her gün kendime yeni bir şey katmayı, teknik bilgimi güncel tutmayı ve öğrendiklerimi pratiğe dökmeyi temel prensip haline getirdim. Teknolojinin hızlı değiştiği günümüzde, yenilikleri kaçırmamak, yalnızca takip etmekle değil; bu yeniliklerin sistemler üzerindeki etkisini anlayabilmekle mümkündür. Bu yüzden hem teorik altyapımı güçlendirmeye hem de uygulamalı çalışmalarla bilgimi pekiştirmeye önem veriyorum.</p>
+          <p class="muted" data-i18n="about_p3">Farklı sektörlerde ve projelerde karşılaşılabilecek değişken gereksinimlere hızlı adaptasyon sağlayabilmek, benim için teknik yetkinlik kadar değerlidir. Yeni bir teknolojiye, araca veya probleme yaklaşırken öğrenmeye açık olmak ve çözüm odaklı düşünmek, çalışma disiplinimin temelini oluşturur. Bilginin tek başına yeterli olmadığı; doğru yerde, doğru şekilde kullanılmasının fark yarattığına inanıyorum.</p>
+          <p class="muted" data-i18n="about_p4">Uzun vadede hedefim; sürekli gelişen, değişen teknolojilere uyum sağlayabilen, farklı disiplinleri bir araya getirerek katma değer üreten ve ilerlediği yolu bilinçli şekilde şekillendiren bir mühendis olarak kariyerimi sürdürmektir.</p>
         </div>
       </section>
 
@@ -352,10 +353,12 @@
         subtitle:"Gömülü sistemler, güç elektroniği ve kontrol odaklı projeler. Öğrenmeye ve ürün geliştirmeye odaklı.",
         badge_power:"Güç Elektroniği", badge_control:"Kontrol", cta:"İletişime Geç",
         about_title:"Hakkımda",
-        about_p:"Yeni mezun Elektrik‑Elektronik Mühendisiyim. STM32 ve Arduino ile gömülü projeler, inverter/indüktör gibi güç elektroniği uygulamaları ve kontrol sistemleri üzerinde çalıştım.",
-        about_l1:"Bitirme: Kablosuz enerji transferi prototipi",
-        about_l2:"Güneş enerji sistemi ve inverter entegrasyonu",
-        about_l3:"Ferrit çekirdekli bobin tasarımı (100 kHz)",
+        // Yeni metin (Parçalanmış)
+        about_p1:"Elektrik-Elektronik Mühendisiyim ve kariyerimi belirli bir alanla sınırlamak yerine, ilerlemek istediğim yolu bilinçli şekilde inşa etmeyi hedefleyen bir mühendislik anlayışına sahibim. Gömülü sistemler, elektronik donanım ve sistem entegrasyonu başta olmak üzere; bir ürünün veya teknolojinin yalnızca tek bir parçasını değil, bütününü anlayabilen bir mühendis olmayı önemsiyorum. Bu nedenle, her alanda yüzeysel bilgi yerine; farklı disiplinlerde anlamlı ve birbiriyle bağlantılı bilgi birikimi oluşturmaya odaklanıyorum.",
+        about_p2:"Mühendislik benim için durağan bir meslek değil, sürekli gelişim gerektiren dinamik bir süreçtir. Bu bakış açısıyla, her gün kendime yeni bir şey katmayı, teknik bilgimi güncel tutmayı ve öğrendiklerimi pratiğe dökmeyi temel prensip haline getirdim. Teknolojinin hızlı değiştiği günümüzde, yenilikleri kaçırmamak, yalnızca takip etmekle değil; bu yeniliklerin sistemler üzerindeki etkisini anlayabilmekle mümkündür. Bu yüzden hem teorik altyapımı güçlendirmeye hem de uygulamalı çalışmalarla bilgimi pekiştirmeye önem veriyorum.",
+        about_p3:"Farklı sektörlerde ve projelerde karşılaşılabilecek değişken gereksinimlere hızlı adaptasyon sağlayabilmek, benim için teknik yetkinlik kadar değerlidir. Yeni bir teknolojiye, araca veya probleme yaklaşırken öğrenmeye açık olmak ve çözüm odaklı düşünmek, çalışma disiplinimin temelini oluşturur. Bilginin tek başına yeterli olmadığı; doğru yerde, doğru şekilde kullanılmasının fark yarattığına inanıyorum.",
+        about_p4:"Uzun vadede hedefim; sürekli gelişen, değişen teknolojilere uyum sağlayabilen, farklı disiplinleri bir araya getirerek katma değer üreten ve ilerlediği yolu bilinçli şekilde şekillendiren bir mühendis olarak kariyerimi sürdürmektir.",
+        
         skills_title:"Yetenekler",
         skills_1:"Gömülü: STM32, Arduino",
         skills_2:"Diller: C/C++, temel Python",
@@ -379,10 +382,12 @@
         subtitle:"Embedded systems, power electronics and control‑oriented projects. Focused on learning and building products.",
         badge_power:"Power Electronics", badge_control:"Control", cta:"Contact Me",
         about_title:"About",
-        about_p:"I am a newly graduated Electrical & Electronics Engineer. I worked on embedded projects with STM32 and Arduino, power electronics applications such as inverters/inductors, and control systems.",
-        about_l1:"Capstone: Wireless power transfer prototype",
-        about_l2:"Solar energy system and inverter integration",
-        about_l3:"Ferrite core coil design (100 kHz)",
+        // Yeni metnin İngilizce çevirisi
+        about_p1:"I am an Electrical & Electronics Engineer with an engineering mindset that aims to consciously build the path I want to advance in, rather than limiting my career to a specific field. I care about being an engineer who understands not just a single part of a product or technology, but the whole, especially in embedded systems, electronic hardware, and system integration. Therefore, instead of superficial knowledge in every field, I focus on creating meaningful and interconnected knowledge in different disciplines.",
+        about_p2:"For me, engineering is not a static profession, but a dynamic process that requires continuous improvement. With this perspective, I have made it a fundamental principle to add something new to myself every day, to keep my technical knowledge up to date, and to put what I have learned into practice. In today's rapidly changing technology, not missing innovations is possible not only by following them but by understanding their impact on systems. That is why I attach importance to both strengthening my theoretical infrastructure and reinforcing my knowledge with practical studies.",
+        about_p3:"Being able to adapt quickly to variable requirements that may be encountered in different sectors and projects is as valuable to me as technical competence. Being open to learning and thinking solution-oriented when approaching a new technology, tool, or problem forms the basis of my work discipline. I believe that knowledge alone is not enough; using it in the right place and in the right way makes the difference.",
+        about_p4:"My long-term goal is to continue my career as an engineer who constantly develops, adapts to changing technologies, produces added value by bringing different disciplines together, and consciously shapes the path he advances.",
+
         skills_title:"Skills",
         skills_1:"Embedded: STM32, Arduino",
         skills_2:"Languages: C/C++, basic Python",
