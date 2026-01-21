@@ -54,6 +54,8 @@
       max-height: 80vh; 
       overflow-y: auto;
       display: flex; flex-direction: column;
+      /* Scroll davranışı için yumuşaklık */
+      -webkit-overflow-scrolling: touch;
     }
 
     /* Kartın scrollbar tasarımı */
@@ -252,7 +254,6 @@
           <p class="muted" data-i18n="s5_d_cpp"><strong>C++ Dili:</strong> Arduino projelerinde modüler ve okunabilir kod yapıları oluşturdum. Kütüphane kullanımı, fonksiyonel ayrıştırma ve temel nesne tabanlı yapı ile mikrodenetleyici uygulamaları geliştirdim.</p>
           <p class="muted" data-i18n="s5_d_py"><strong>Python:</strong> OpenCV kütüphanesini kullanarak görüntü işleme uygulamalarında görev aldım. Bir projede hareket halindeki bir aracın plakasının drone görüntüsü üzerinden tespit ve takibini gerçekleştiren sistemin yazılımını inceledim.</p>
           <p class="muted" data-i18n="s5_d_plc"><strong>PLC:</strong> Siemens TIA Portal ortamında Ladder Diagram kullanarak temel seviye PLC uygulamaları geliştirdim. Giriş-çıkış kontrolü, zamanlayıcılar ve basit otomasyon senaryoları üzerine çalışmalar yaptım.</p>
-
         </div>
       </section>
 
@@ -261,13 +262,13 @@
           <h2 data-i18n="projects_title">Projeler</h2>
           
           <h3 data-i18n="p1_title">Kablosuz Enerji Aktarımlı Elektrikli Araç Şarj Yolu (Bitirme Projesi)</h3>
-          <p class="muted" data-i18n="p1_desc">Bu projede, güneş enerjisi ile beslenen, kablosuz güç transferi kullanarak hareketli bir aracı şarj edebilen modüler bir yol sistemi tasarlanmış ve prototipi oluşturulmuştur.</p>
+          <p class="muted" data-i18n="p1_desc">Bu projede, güneş enerjisi ile beslenen, kablosuz güç transferi kullanarak hareketli bir aracı şarj edebilen modüler bir yol sistemi tasarlanmış ve prototipi oluşturulmuştur.<br><br>Sistem; 20W 12V güneş paneli, 12V akü, 12V DC → 220V AC kare dalga inverter ve Arduino Uno kontrol ünitesinden oluşmaktadır. Yol boyunca yerleştirilmiş 16 adet U tipi ferrit çekirdekli verici bobin, IR sensörler yardımıyla aracın konumuna göre sadece aracın altında bulunan bobin aktif olacak şekilde kontrol edilmektedir. Bu sayede enerji israfı önlenmiş ve sistem verimliliği artırılmıştır.<br><br>Araç üzerinde ise iki adet alıcı bobin, doğrultma ve regülasyon devresi ile 8V 1.8Ah bataryanın şarj edilmesi sağlanmıştır. Araç, bu batarya ile çalışan Arduino, motor sürücü ve 4 adet 6V DC motor içermektedir.<br><br>Projede ayrıca 100 kHz çalışma frekansına uygun, UU6015 ferrit çekirdek üzerinde 20 tur verici bobin tasarımı yapılmış ve güç aktarımı deneysel olarak test edilmiştir.<br><br><strong>Kazanımlar:</strong><br>• Güç elektroniği<br>• Yüksek frekanslı inverter tasarımı<br>• Kablosuz enerji transferi<br>• Arduino ile gerçek zamanlı kontrol<br>• Sensör tabanlı otomasyon",</p>
 
           <h3 data-i18n="p2_title">Güneş Enerjili Tarımsal Sulama Sistemi Tasarımı</h3>
-          <p class="muted" data-i18n="p2_desc">Bu projede, 4 kW gücünde dalgıç pompayı besleyebilecek güneş enerjili bir sulama sisteminin boyutlandırması ve sistem tasarımı yapılmıştır.</p>
+          <p class="muted" data-i18n="p2_desc">Bu projede, 4 kW gücünde (İmpo SK 408/23) dalgıç pompayı besleyebilecek güneş enerjili bir sulama sisteminin boyutlandırması ve sistem tasarımı yapılmıştır. Hedef; 1 dönümlük tarım arazisi için günlük 5000–8000 litre su sağlayabilecek, günde 5–8 saat çalışabilen, şebekeden bağımsız (off-grid) bir sistem oluşturmaktır.<br><br><strong>Sistem Kapsamı:</strong><br>• 6 kW güneş paneli gücü<br>• Akü destekli enerji depolama yapısı<br>• Uygun inverter seçimi<br>• Günlük enerji tüketimi ve üretim hesabı<br>• Pompa kalkış akımı ve sürekli çalışma gücü analizleri<br><br><strong>Kazanımlar:</strong><br>• Yenilenebilir enerji sistemleri boyutlandırma<br>• Yük analizi<br>• İnverter ve akü kapasitesi hesaplama<br>• Tarımsal enerji sistemleri planlama",</p>
 
           <h3 data-i18n="p3_title">Optimizasyon Tabanlı PID Kontrolcü Tasarımı (Akademik Çalışma)</h3>
-          <p class="muted" data-i18n="p3_desc">Bu çalışmada, klasik PID ayarlama yöntemleri yerine optimizasyon algoritmaları kullanılarak PID parametrelerinin belirlenmesi konusu incelenmiştir.</p>
+          <p class="muted" data-i18n="p3_desc">Bu çalışmada, “Design of PID Controllers with Computational Optimization Approach” başlığı altında, klasik PID ayarlama yöntemleri yerine optimizasyon algoritmaları kullanılarak PID parametrelerinin belirlenmesi konusu incelenmiştir. Kontrol teorisi dersi kapsamında yapılan bu projede; PID kontrolcülerin çalışma prensipleri, manuel ayarlama yöntemlerinin dezavantajları ve optimizasyon tabanlı yaklaşımın performans iyileştirmesi teorik ve uygulamalı olarak ele alınmıştır.<br><br>Amaç; sistemin aşım (overshoot), yerleşme süresi (settling time) ve kararlı hal hatası (steady-state error) gibi performans kriterlerini iyileştiren PID parametrelerini hesaplamalı yöntemlerle elde etmektir.<br><br><strong>Kazanımlar:</strong><br>• Kontrol sistemleri<br>• PID optimizasyonu<br>• Mühendislikte sayısal yöntemlerin kullanımı<br>• Sistem performans analizi",</p>
           
         </div>
       </section>
@@ -383,9 +384,7 @@
         s5_d_py: "<strong>Python:</strong> OpenCV kütüphanesini kullanarak görüntü işleme uygulamalarında görev aldım. Bir projede hareket halindeki bir aracın plakasının drone görüntüsü üzerinden tespit ve takibini gerçekleştiren sistemin yazılımını inceledim.",
         s5_d_plc: "<strong>PLC:</strong> Siemens TIA Portal ortamında Ladder Diagram kullanarak temel seviye PLC uygulamaları geliştirdim. Giriş-çıkış kontrolü, zamanlayıcılar ve basit otomasyon senaryoları üzerine çalışmalar yaptım.",
 
-        // --- PROJECTS SECTION TR ---
         projects_title:"Projeler",
-        
         p1_title:"Kablosuz Enerji Aktarımlı Elektrikli Araç Şarj Yolu (Bitirme Projesi)",
         p1_desc:"Bu projede, güneş enerjisi ile beslenen, kablosuz güç transferi kullanarak hareketli bir aracı şarj edebilen modüler bir yol sistemi tasarlanmış ve prototipi oluşturulmuştur.<br><br>Sistem; 20W 12V güneş paneli, 12V akü, 12V DC → 220V AC kare dalga inverter ve Arduino Uno kontrol ünitesinden oluşmaktadır. Yol boyunca yerleştirilmiş 16 adet U tipi ferrit çekirdekli verici bobin, IR sensörler yardımıyla aracın konumuna göre sadece aracın altında bulunan bobin aktif olacak şekilde kontrol edilmektedir. Bu sayede enerji israfı önlenmiş ve sistem verimliliği artırılmıştır.<br><br>Araç üzerinde ise iki adet alıcı bobin, doğrultma ve regülasyon devresi ile 8V 1.8Ah bataryanın şarj edilmesi sağlanmıştır. Araç, bu batarya ile çalışan Arduino, motor sürücü ve 4 adet 6V DC motor içermektedir.<br><br>Projede ayrıca 100 kHz çalışma frekansına uygun, UU6015 ferrit çekirdek üzerinde 20 tur verici bobin tasarımı yapılmış ve güç aktarımı deneysel olarak test edilmiştir.<br><br><strong>Kazanımlar:</strong><br>• Güç elektroniği<br>• Yüksek frekanslı inverter tasarımı<br>• Kablosuz enerji transferi<br>• Arduino ile gerçek zamanlı kontrol<br>• Sensör tabanlı otomasyon",
 
@@ -427,9 +426,7 @@
         s5_d_py: "<strong>Python:</strong> Took part in image processing applications using OpenCV. Examined the software of a system that detects and tracks the license plate of a moving vehicle via drone image.",
         s5_d_plc: "<strong>PLC:</strong> Developed basic level PLC applications using Ladder Diagram in Siemens TIA Portal environment. Worked on I/O control, timers, and simple automation scenarios.",
 
-        // --- PROJECTS SECTION EN ---
         projects_title:"Projects",
-        
         p1_title:"Wireless Power Transfer Electric Vehicle Charging Lane (Capstone Project)",
         p1_desc:"In this project, a modular road system powered by solar energy, capable of charging a moving vehicle using wireless power transfer, was designed and prototyped.<br><br>The system consists of a 20W 12V solar panel, 12V battery, 12V DC → 220V AC square wave inverter, and an Arduino Uno control unit. 16 U-type ferrite core transmitter coils placed along the road are controlled so that only the coil under the vehicle is active with the help of IR sensors. In this way, energy waste is prevented and system efficiency is increased.<br><br>On the vehicle, an 8V 1.8Ah battery is charged with two receiver coils, rectification, and regulation circuit. The vehicle contains an Arduino, motor driver, and 4 6V DC motors powered by this battery.<br><br>Also in the project, a 20-turn transmitter coil design was made on a UU6015 ferrite core suitable for 100 kHz operating frequency, and power transfer was experimentally tested.<br><br><strong>Gains:</strong><br>• Power electronics<br>• High-frequency inverter design<br>• Wireless energy transfer<br>• Real-time control with Arduino<br>• Sensor-based automation",
 
@@ -487,9 +484,33 @@
       setTimeout(()=> locked = false, 900);
     }
 
+    // Scrollable alan kontrolü (GÜNCEL)
+    function isInsideScrollable(target) {
+      const el = target.closest('.card');
+      if (!el) return false;
+      // Eğer içerik sığıyorsa scroll etmeye gerek yoktur, o zaman sayfa değişebilir
+      // Eğer içerik taşmışsa (scrollHeight > clientHeight), o zaman scroll önceliği yazıdadır.
+      return el.scrollHeight > el.clientHeight;
+    }
+
     window.addEventListener('wheel', (e)=>{
+      // Eğer scroll edilebilir (taşan) bir içeriğin üzerindeysek sayfa değişmesin
+      if (isInsideScrollable(e.target)) return;
+
       if(Math.abs(e.deltaY) < 20) return;
       if(e.deltaY > 0) go(1); else go(-1);
+    }, {passive:true});
+
+    // Touch support
+    let sy = 0;
+    window.addEventListener('touchstart', e=>{ sy = e.touches[0].clientY; }, {passive:true});
+    window.addEventListener('touchend', e=>{
+      // Scroll edilebilir alanın üzerindeysek sayfa değişmesin
+      if (isInsideScrollable(e.target)) return;
+
+      const ey = e.changedTouches[0].clientY;
+      const dy = sy - ey;
+      if(Math.abs(dy) > 40){ if(dy > 0) go(1); else go(-1); }
     }, {passive:true});
 
     document.querySelectorAll('nav a').forEach(a=>{
@@ -498,15 +519,6 @@
         if(!Number.isNaN(i)){ index = i; update(); }
       });
     });
-
-    // Touch support
-    let sy = 0;
-    window.addEventListener('touchstart', e=>{ sy = e.touches[0].clientY; }, {passive:true});
-    window.addEventListener('touchend', e=>{
-      const ey = e.changedTouches[0].clientY;
-      const dy = sy - ey;
-      if(Math.abs(dy) > 40){ if(dy > 0) go(1); else go(-1); }
-    }, {passive:true});
 
     document.getElementById('tr').onclick = ()=>setLang('tr');
     document.getElementById('en').onclick = ()=>setLang('en');
