@@ -36,21 +36,25 @@ export default function CertsSection({ lang }: { lang: Lang }) {
           <h2 className="text-3xl font-bold mb-2 text-white">{t.certs_title}</h2>
           <p className="text-slate-300 mb-8">{t.certs_desc}</p>
           <div className="cert-grid">
-            {certs.map((c) => (
-              <a
-                key={c.file}
-                className="cert-item"
-                href={`/assets/certificates/${encodeURIComponent(c.file)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={`/assets/certificates/${encodeURIComponent(c.file)}`}
-                  alt={c.alt}
-                  loading="lazy"
-                />
-              </a>
-            ))}
+            {certs.map((c) => {
+              const url = `/assets/certificates/${c.file.replace(/ /g, "%20")}`;
+              return (
+                <a
+                  key={c.file}
+                  className="cert-item"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={url}
+                    alt={c.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
