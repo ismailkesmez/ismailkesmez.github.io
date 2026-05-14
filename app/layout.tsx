@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "İsmail Kesmez - Electrical & Electronics Engineer. Projects, skills and contact.",
   icons: {
-    icon: "/assets/images/profile-pic (1).png",
+    icon: "/assets/images/profile-pic-(1).png",
   },
 };
 
