@@ -61,7 +61,7 @@ export default function Home() {
       category: "Skills",
       icon: Cpu,
       relatedIds: [1, 3],
-      status: "completed",
+      status: "in-progress",
       energy: energyLevels[2],
       href: "#yetenekler",
       navigateLabel: t.view_detail,
@@ -93,7 +93,7 @@ export default function Home() {
       category: "Certificates",
       icon: Award,
       relatedIds: [3, 5],
-      status: "completed",
+      status: "in-progress",
       energy: energyLevels[4],
       href: "#sertifikalar",
       navigateLabel: t.view_detail,
@@ -189,6 +189,7 @@ export default function Home() {
           <RadialOrbitalTimeline
             timelineData={timelineData}
             onEnergyChange={handleEnergyChange}
+            lang={lang}
           />
 
           {/* Scroll hint */}

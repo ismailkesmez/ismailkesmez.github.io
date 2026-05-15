@@ -15,6 +15,11 @@ export const dict = {
     hero_cv: "CV Görüntüle",
     orbit_explore: "Keşfet",
     view_detail: "Detayları Gör →",
+    status_complete: "TAMAMLANDI",
+    status_in_progress: "DEVAM ETMEKTE",
+    status_pending: "BEKLEMEDE",
+    energy_level: "Enerji Seviyesi",
+    connected_nodes: "Bağlı Bölümler",
     about_title: "Hakkımda",
     about_p1:
       "Elektrik-Elektronik Mühendisiyim ve kariyerimi belirli bir alanla sınırlamak yerine, ilerlemek istediğim yolu bilinçli şekilde inşa etmeyi hedefleyen bir mühendislik anlayışına sahibim. Gömülü sistemler, elektronik donanım ve sistem entegrasyonu başta olmak üzere; bir ürünün veya teknolojinin yalnızca tek bir parçasını değil, bütününü anlayabilen bir mühendis olmayı önemsiyorum.",
@@ -81,6 +86,11 @@ export const dict = {
     hero_cv: "View CV",
     orbit_explore: "Explore",
     view_detail: "View Details →",
+    status_complete: "COMPLETE",
+    status_in_progress: "IN PROGRESS",
+    status_pending: "PENDING",
+    energy_level: "Energy Level",
+    connected_nodes: "Connected Nodes",
     about_title: "About",
     about_p1:
       "I am an Electrical & Electronics Engineer with an engineering mindset that aims to consciously build the path I want to advance in, rather than limiting my career to a specific field. I care about being an engineer who understands not just a single part of a product or technology, but the whole, especially in embedded systems, electronic hardware, and system integration.",
