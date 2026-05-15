@@ -38,6 +38,36 @@ export default function RadialOrbitalTimeline({
   const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
   const [r, setR] = useState(200);
   const containerRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+
+  const getEnergyFromClientX = (clientX: number): number | null => {
+    if (!barRef.current) return null;
+    const rect = barRef.current.getBoundingClientRect();
+    return Math.round(Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100)));
+  };
+
+  const handleBarPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    e.currentTarget.setPointerCapture(e.pointerId);
+    dragging.current = true;
+    const newEnergy = getEnergyFromClientX(e.clientX);
+    if (newEnergy !== null && activeNodeId !== null) {
+      const item = timelineData.find((i) => i.id === activeNodeId);
+      if (item) onEnergyChange?.(item.id, newEnergy - item.energy);
+    }
+  };
+
+  const handleBarPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragging.current || activeNodeId === null) return;
+    const newEnergy = getEnergyFromClientX(e.clientX);
+    if (newEnergy !== null) {
+      const item = timelineData.find((i) => i.id === activeNodeId);
+      if (item) onEnergyChange?.(item.id, newEnergy - item.energy);
+    }
+  };
+
+  const handleBarPointerUp = () => { dragging.current = false; };
 
   const closeCard = () => {
     setActiveNodeId(null);
@@ -250,9 +280,9 @@ export default function RadialOrbitalTimeline({
                   </span>
                   <span className="font-mono text-white">{activeItem.energy}%</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 select-none">
                   <button
-                    className="w-6 h-6 rounded border border-white/30 bg-white/5 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold leading-none transition-colors select-none"
+                    className="w-6 h-6 rounded border border-white/30 bg-white/5 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold leading-none transition-colors"
                     onClick={(e) => {
                       e.stopPropagation();
                       onEnergyChange?.(activeItem.id, -10);
@@ -260,14 +290,24 @@ export default function RadialOrbitalTimeline({
                   >
                     −
                   </button>
-                  <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
-                      style={{ width: `${activeItem.energy}%` }}
-                    />
+                  {/* Draggable energy bar — mouse + touch via Pointer Events */}
+                  <div
+                    ref={barRef}
+                    className="flex-1 py-2.5 cursor-ew-resize touch-none"
+                    onPointerDown={handleBarPointerDown}
+                    onPointerMove={handleBarPointerMove}
+                    onPointerUp={handleBarPointerUp}
+                    onPointerCancel={handleBarPointerUp}
+                  >
+                    <div className="h-1.5 bg-white/10 rounded-full overflow-hidden pointer-events-none">
+                      <div
+                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-75"
+                        style={{ width: `${activeItem.energy}%` }}
+                      />
+                    </div>
                   </div>
                   <button
-                    className="w-6 h-6 rounded border border-white/30 bg-white/5 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold leading-none transition-colors select-none"
+                    className="w-6 h-6 rounded border border-white/30 bg-white/5 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold leading-none transition-colors"
                     onClick={(e) => {
                       e.stopPropagation();
                       onEnergyChange?.(activeItem.id, 10);
