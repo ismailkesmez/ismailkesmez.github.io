@@ -152,14 +152,25 @@ export default function RadialOrbitalTimeline({
             className="absolute w-full h-full flex items-center justify-center"
             style={{ perspective: "1000px" }}
           >
-            {/* Centre orb */}
-            <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10">
-              <div className="absolute w-20 h-20 rounded-full border border-white/20 animate-ping opacity-70" />
+            {/* Centre — profile photo with electric ripple */}
+            <div className="absolute z-10 pointer-events-none" style={{ width: 76, height: 76 }}>
+              {/* Electric wave rings */}
+              <div className="electric-ring absolute inset-0 rounded-full border border-[#38bdf8]/60" style={{ animationDelay: "0s" }} />
+              <div className="electric-ring absolute inset-0 rounded-full border border-[#38bdf8]/40" style={{ animationDelay: "0.75s" }} />
+              <div className="electric-ring absolute inset-0 rounded-full border border-[#38bdf8]/25" style={{ animationDelay: "1.5s" }} />
+              {/* Constant glow */}
               <div
-                className="absolute w-24 h-24 rounded-full border border-white/10 animate-ping opacity-50"
-                style={{ animationDelay: "0.5s" }}
+                className="absolute inset-0 rounded-full"
+                style={{ boxShadow: "0 0 16px rgba(56,189,248,0.35), 0 0 32px rgba(56,189,248,0.12)" }}
               />
-              <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md" />
+              {/* Profile photo */}
+              <img
+                src="/assets/images/profile-pic-(1).png"
+                alt="İsmail Kesmez"
+                className="w-full h-full rounded-full object-cover object-top relative z-10"
+                style={{ border: "2px solid rgba(56,189,248,0.45)" }}
+                draggable={false}
+              />
             </div>
 
             {/* Orbit ring */}
