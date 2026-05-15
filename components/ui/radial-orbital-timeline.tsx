@@ -32,6 +32,7 @@ export default function RadialOrbitalTimeline({
   const [rotationAngle, setRotationAngle] = useState<number>(0);
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
+  const [r, setR] = useState(200);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const closeCard = () => {
@@ -59,6 +60,19 @@ export default function RadialOrbitalTimeline({
   };
 
   useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => {
+      const { width, height } = el.getBoundingClientRect();
+      if (width && height) {
+        setR(Math.min(200, Math.floor((width - 60) / 2), Math.floor((height - 120) / 2)));
+      }
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  useEffect(() => {
     if (!autoRotate) return;
     const timer = setInterval(() => {
       setRotationAngle((prev) => Number(((prev + 0.3) % 360).toFixed(3)));
@@ -69,7 +83,6 @@ export default function RadialOrbitalTimeline({
   const calcPosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
     const rad = (angle * Math.PI) / 180;
-    const r = 200;
     return {
       x: r * Math.cos(rad),
       y: r * Math.sin(rad),
@@ -116,7 +129,10 @@ export default function RadialOrbitalTimeline({
             </div>
 
             {/* Orbit ring */}
-            <div className="absolute w-96 h-96 rounded-full border border-white/10" />
+            <div
+              className="absolute rounded-full border border-white/10"
+              style={{ width: r * 2, height: r * 2 }}
+            />
 
             {/* Nodes */}
             {timelineData.map((item, index) => {
