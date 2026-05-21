@@ -5,7 +5,16 @@
       "PowerShell(node --version)",
       "PowerShell(npm --version)",
       "PowerShell(Get-Command node)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(Get-ChildItem \"c:\\\\Users\\\\lkesm\\\\Desktop\\\\Game\" -Recurse)",
+      "Bash(Select-Object FullName, Length)",
+      "Bash(dir \"c:\\\\Users\\\\lkesm\\\\Desktop\\\\Kesmez\\\\Website\" /b)",
+      "Bash(Get-Content package.json)",
+      "Bash(Select-String \"scripts\" -A 5)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d.get\\('scripts', {}\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3456/)",
+      "Bash(node -e ' *)",
+      "WebFetch(domain:localhost)"
     ]
   }
 }

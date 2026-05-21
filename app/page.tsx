@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { User, Cpu, Code2, Award, Mail } from "lucide-react";
+import { User, Cpu, Code2, Award, Mail, BookOpen } from "lucide-react";
 
 import { type Lang, dict } from "@/lib/dict";
 import Header from "@/components/Header";
@@ -11,6 +11,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import CertsSection from "@/components/sections/CertsSection";
+import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 const DEFAULT_ENERGY: Record<number, number> = {
@@ -18,7 +19,8 @@ const DEFAULT_ENERGY: Record<number, number> = {
   2: 85,
   3: 75,
   4: 90,
-  5: 100,
+  5: 80,
+  6: 100,
 };
 
 export default function Home() {
@@ -92,7 +94,7 @@ export default function Home() {
           : "STM32, power systems, embedded C, AI, pilot license and more certificates.",
       category: "Certificates",
       icon: Award,
-      relatedIds: [3, 5],
+      relatedIds: [3, 5, 6],
       status: "in-progress",
       energy: energyLevels[4],
       href: "#sertifikalar",
@@ -100,6 +102,22 @@ export default function Home() {
     },
     {
       id: 5,
+      title: t.nav_blog,
+      date: lang === "tr" ? "Notlar" : "Notes",
+      content:
+        lang === "tr"
+          ? "Öğrendiğim konuları ve notlarımı paylaştığım blog yazıları."
+          : "Blog posts where I share notes and things I've learned.",
+      category: "Blog",
+      icon: BookOpen,
+      relatedIds: [4, 6],
+      status: "in-progress",
+      energy: energyLevels[5],
+      href: "#blog",
+      navigateLabel: t.view_detail,
+    },
+    {
+      id: 6,
       title: t.nav_contact,
       date: "Online",
       content:
@@ -108,9 +126,9 @@ export default function Home() {
           : "Reach me on LinkedIn, GitHub, YouTube or via email.",
       category: "Contact",
       icon: Mail,
-      relatedIds: [4, 1],
+      relatedIds: [5, 1],
       status: "completed",
-      energy: energyLevels[5],
+      energy: energyLevels[6],
       href: "#iletisim",
       navigateLabel: t.view_detail,
     },
@@ -229,6 +247,7 @@ export default function Home() {
         <SkillsSection lang={lang} />
         <ProjectsSection lang={lang} />
         <CertsSection lang={lang} />
+        <BlogSection lang={lang} />
         <ContactSection lang={lang} />
       </main>
 

@@ -13,6 +13,7 @@ const navItems = [
   { key: "nav_skills" as const, href: "#yetenekler" },
   { key: "nav_projects" as const, href: "#projeler" },
   { key: "nav_certs" as const, href: "#sertifikalar" },
+  { key: "nav_blog" as const, href: "#blog" },
   { key: "nav_contact" as const, href: "#iletisim" },
 ];
 

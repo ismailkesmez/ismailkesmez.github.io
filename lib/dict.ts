@@ -7,6 +7,7 @@ export const dict = {
     nav_skills: "Yetenekler",
     nav_projects: "Projeler",
     nav_certs: "Sertifikalar",
+    nav_blog: "Blog",
     nav_contact: "İletişim",
     hero_title: "Elektrik‑Elektronik Mühendisi",
     hero_subtitle:
@@ -69,6 +70,11 @@ export const dict = {
     p3_gains: ["Kontrol sistemleri", "PID optimizasyonu", "Sayısal yöntemler", "Sistem performans analizi"],
     certs_title: "Sertifikalar",
     certs_desc: "Aldığım eğitimler ve kazandığım yetkinlik sertifikaları:",
+    blog_title: "Blog",
+    blog_empty: "Yazılar yakında eklenecek.",
+    blog_read_more: "Devamını Oku →",
+    prompt_bio:
+      "Elektrik-elektronik mühendisi olarak başladığım bu yolda, zaman içinde yazılım geliştirme ve yapay zeka alanlarına yoğunlaştım. Teknik altyapım, sistemlerin hem donanım hem yazılım katmanında nasıl çalıştığını düşünmemi sağlıyor; bu bakış açısını her projeye taşıyorum.\n\nSon dönemde özellikle Prompt Engineering alanında aktif olarak çalışıyor, büyük dil modellerini (LLM) daha verimli ve öngörülebilir hale getirmeye odaklanıyorum. Bu alan hızla gelişiyor; ben de her gün yeni teknikleri test ediyor, hataları analiz ediyor ve çıkardığım derslerle pratik uygulamalar geliştiriyorum.\n\nÖğrenmek benim için bir hedef değil, süregelen bir alışkanlık. Her proje, bir öncekinin üzerine inşa edilmiş bir adımdır.",
     contact_title: "İletişim",
     footer: "İsmail Kesmez",
   },
@@ -78,6 +84,7 @@ export const dict = {
     nav_skills: "Skills",
     nav_projects: "Projects",
     nav_certs: "Certificates",
+    nav_blog: "Blog",
     nav_contact: "Contact",
     hero_title: "Electrical & Electronics Engineer",
     hero_subtitle:
@@ -140,6 +147,11 @@ export const dict = {
     p3_gains: ["Control systems", "PID optimization", "Numerical methods", "System performance analysis"],
     certs_title: "Certificates",
     certs_desc: "Trainings I received and competency certificates I earned:",
+    blog_title: "Blog",
+    blog_empty: "Posts coming soon.",
+    blog_read_more: "Read More →",
+    prompt_bio:
+      "I'm İsmail Kesmez — starting out as an electrical-electronics engineer, I gradually shifted my focus toward software development and artificial intelligence. My technical background lets me think about how systems work at both the hardware and software layer, and I bring that perspective to every project.\n\nLately I've been actively working in Prompt Engineering, focusing on making large language models (LLMs) more efficient and predictable. This field is evolving fast — I test new techniques every day, analyze failures, and turn those lessons into practical applications.\n\nLearning isn't a goal for me — it's an ongoing habit. Every project is a step built on the one before it.",
     contact_title: "Contact",
     footer: "İsmail Kesmez",
   },
