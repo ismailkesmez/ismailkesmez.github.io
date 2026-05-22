@@ -28,13 +28,31 @@ export default function BlogSection({ lang }: { lang: Lang }) {
           {t.blog_title}
         </h2>
 
-        {posts.length === 0 ? (
-          <div className="glass-card p-12 text-center reveal-up">
-            <p className="text-white/40 text-sm">{t.blog_empty}</p>
+        <div className="space-y-6">
+          {/* YouTube card */}
+          <div className="glass-card p-6 reveal-up">
+            <div className="flex gap-6 items-center">
+              <img
+                src="/assets/documents/Youtube.png"
+                alt="YouTube"
+                className="w-[288px] h-[288px] rounded-lg object-contain flex-shrink-0"
+              />
+              <div>
+                {t.blog_youtube.split("\n\n").map((paragraph, i) => (
+                  <p key={i} className={`text-slate-300 leading-relaxed text-sm${i < t.blog_youtube.split("\n\n").length - 1 ? " mb-3" : ""}`}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
           </div>
-        ) : (
-          <div className="space-y-6">
-            {posts.map((post) => (
+
+          {posts.length === 0 ? (
+            <div className="glass-card p-12 text-center reveal-up">
+              <p className="text-white/40 text-sm">{t.blog_empty}</p>
+            </div>
+          ) : (
+            posts.map((post) => (
               <div key={post.title} className="glass-card p-8 reveal-up">
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                   <h3 className="text-xl font-bold text-white">{post.title}</h3>
@@ -56,9 +74,9 @@ export default function BlogSection({ lang }: { lang: Lang }) {
                   </button>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+            ))
+          )}
+        </div>
       </div>
     </section>
   );

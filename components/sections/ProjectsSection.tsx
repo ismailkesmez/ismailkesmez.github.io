@@ -32,6 +32,33 @@ export default function ProjectsSection({ lang }: { lang: Lang }) {
     },
   ];
 
+  const promptProjects = [
+    {
+      title: t.pp4_title,
+      desc: t.pp4_desc,
+      image: "/assets/documents/DevreAnaliz.png",
+      downloadUrl: "https://github.com/ismailkesmez/DevreAnalizi/releases/download/V0.1/Devre-Analizi-v0.1-win64.zip",
+    },
+    {
+      title: t.pp1_title,
+      desc: t.pp1_desc,
+      image: "/assets/documents/TikTik.png",
+      downloadUrl: "https://github.com/ismailkesmez/T-k/releases/download/V0.3/TikTik.V0.3.apk",
+    },
+    {
+      title: t.pp2_title,
+      desc: t.pp2_desc,
+      image: "/assets/documents/MedGrowth.png",
+      downloadUrl: "https://github.com/ismailkesmez/MedGrowth/releases/download/V0.2/MedGrowth.V0.2.apk",
+    },
+    {
+      title: t.pp3_title,
+      desc: t.pp3_desc,
+      image: "/assets/documents/RealLifeRPG.png",
+      downloadUrl: "https://github.com/ismailkesmez/RealLifeRPG/releases/download/V0.1/LifeRPG.apk",
+    },
+  ];
+
   const tabs: { id: Tab; label: string }[] = [
     { id: "eee", label: "Elektrik-Elektronik Mühendisliği" },
     { id: "prompt", label: lang === "tr" ? "Sufle Mühendisliği" : "Prompt Engineering" },
@@ -119,12 +146,30 @@ export default function ProjectsSection({ lang }: { lang: Lang }) {
               ))}
             </div>
 
-            {/* Future projects will appear here */}
-            <div className="glass-card p-10 text-center reveal-up">
-              <p className="text-white/40 text-sm">
-                {lang === "tr" ? "Projeler yakında eklenecek." : "Projects coming soon."}
-              </p>
-            </div>
+            {promptProjects.map((p) => (
+              <div key={p.title} className="glass-card p-6 reveal-up">
+                <div className="flex gap-6 items-center">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-[288px] h-[288px] rounded-lg object-contain flex-shrink-0"
+                  />
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-3">{p.title}</h3>
+                    <p className="text-slate-300 leading-relaxed text-sm mb-3">{p.desc}</p>
+                    <p className="text-[#38bdf8] text-xs mb-4">{t.pp_github_note}</p>
+                    <a
+                      href={p.downloadUrl}
+                      download
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-[#0f172a] transition-all duration-300"
+                      style={{ background: "linear-gradient(135deg, #38bdf8, #60a5fa)" }}
+                    >
+                      ↓ {t.pp_download}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         )}
       </div>
