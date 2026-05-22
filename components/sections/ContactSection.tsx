@@ -44,9 +44,9 @@ export default function ContactSection({ lang }: { lang: Lang }) {
               className="contact-item"
             >
               <div className="contact-icon">{c.icon}</div>
-              <div className="flex flex-col">
+              <div className="flex flex-col min-w-0">
                 <span className="text-sm text-slate-300">{c.label[lang]}</span>
-                <strong className="text-base text-white font-semibold">
+                <strong className="text-base text-white font-semibold break-all">
                   {c.value}
                 </strong>
               </div>

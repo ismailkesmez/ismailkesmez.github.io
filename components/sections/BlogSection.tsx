@@ -31,11 +31,11 @@ export default function BlogSection({ lang }: { lang: Lang }) {
         <div className="space-y-6">
           {/* YouTube card */}
           <div className="glass-card p-6 reveal-up">
-            <div className="flex gap-6 items-center">
+            <div className="flex flex-col sm:flex-row gap-6 items-center">
               <img
                 src="/assets/documents/Youtube.png"
                 alt="YouTube"
-                className="w-[288px] h-[288px] rounded-lg object-contain flex-shrink-0"
+                className="w-48 h-48 sm:w-[288px] sm:h-[288px] rounded-lg object-contain flex-shrink-0"
               />
               <div>
                 {t.blog_youtube.split("\n\n").map((paragraph, i) => (
