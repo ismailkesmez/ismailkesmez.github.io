@@ -43,7 +43,7 @@ export default function ProjectsSection({ lang }: { lang: Lang }) {
       title: t.pp1_title,
       desc: t.pp1_desc,
       image: "/assets/documents/TikTik.png",
-      downloadUrl: "https://github.com/ismailkesmez/T-k/releases/download/V0.3/TikTik.V0.3.apk",
+      downloadUrl: "https://github.com/ismailkesmez/T-k/releases/download/V0.4/TikTik.V0.4.apk",
     },
     {
       title: t.pp2_title,
