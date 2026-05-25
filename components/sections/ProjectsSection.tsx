@@ -40,10 +40,16 @@ export default function ProjectsSection({ lang }: { lang: Lang }) {
       downloadUrl: "https://github.com/ismailkesmez/DevreAnalizi/releases/download/V0.1/Devre-Analizi-v0.1-win64.zip",
     },
     {
+      title: t.pp5_title,
+      desc: t.pp5_desc,
+      image: "/assets/documents/Tasker.png",
+      downloadUrl: "https://github.com/ismailkesmez/Tasker/releases/download/V0.1/Tasker.V0.1.apk",
+    },
+    {
       title: t.pp1_title,
       desc: t.pp1_desc,
       image: "/assets/documents/TikTik.png",
-      downloadUrl: "https://github.com/ismailkesmez/T-k/releases/download/V0.4/TikTik.V0.4.apk",
+      downloadUrl: "https://github.com/ismailkesmez/T-k/releases/download/V0.5.1/TikTik.V0.5.1.apk",
     },
     {
       title: t.pp2_title,
