@@ -43,7 +43,7 @@ export default function ProjectsSection({ lang }: { lang: Lang }) {
       title: t.pp5_title,
       desc: t.pp5_desc,
       image: "/assets/documents/Tasker.png",
-      downloadUrl: "https://github.com/ismailkesmez/Tasker/releases/download/V0.1/Tasker.V0.1.apk",
+      downloadUrl: "https://github.com/ismailkesmez/Tasker/releases/download/V0.2/Tasker.V0.2.apk",
     },
     {
       title: t.pp1_title,
